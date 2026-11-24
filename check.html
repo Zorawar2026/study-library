@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Content check · Study Library</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="check-page">
+  <header class="topbar">
+    <a class="back" href="index.html">← <span>Library</span></a>
+    <strong class="topbar-title">Content check</strong>
+    <button class="btn btn-ghost btn-sm theme-toggle" type="button"></button>
+  </header>
+  <main class="check-main">
+    <p class="muted">Run this after adding or editing a module. <strong>Errors</strong> break something on the site (a dead link, a quiz answer that points nowhere). <strong>Warnings</strong> are gaps in the content. <strong>Notes</strong> are suggestions.</p>
+    <div id="report"><div class="loading">Checking…</div></div>
+  </main>
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/check.js"></script>
+</body>
+</html>
