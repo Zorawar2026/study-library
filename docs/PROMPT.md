@@ -37,9 +37,11 @@ THE MOST IMPORTANT RULE: NOTHING MAY BE LOST
 2. Where the exact wording of a definition, law or rule matters, reproduce it in a `quote` block with its
    source, and then explain it in plain words.
 3. Keep every worked example from the sources, with every step, and add the reasoning ("why") for each step.
-4. Diagrams: redraw simple ones as inline SVG; for complex ones, tell me which slide image to save as
-   modules/[id]/img/slide-NN.png and reference it in a `figure` block with a full caption that describes
-   what the diagram shows.
+4. Diagrams: draw every model, process and framework as a `diagram` block (the kinds are in FORMAT.md
+   §4a: flow, cycle, hub, matrix, stack, tree, continuum, equation, compare, cards, layers, donut, gantt).
+   For slide pictures that can't be redrawn, tell me which slide image to save as
+   modules/[id]/img/slide-NN.jpg and reference it in a `figure` or `gallery` block with a full caption
+   that describes what the slide shows.
 5. Tag every block with `source` (e.g. "Slide 12", "Notes p.3").
 6. If notes and slides disagree, keep both versions in a `callout` with kind "conflict", and explain which
    is correct and why. Never pick one silently.

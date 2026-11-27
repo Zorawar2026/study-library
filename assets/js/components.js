@@ -117,10 +117,24 @@
       case "figure": {
         const media = b.svg
           ? `<div class="fig-svg" role="img" aria-label="${esc(b.alt || b.caption || "")}">${b.svg}</div>`
-          : `<img src="${esc(A.assetUrl(m, b.src || ""))}" alt="${esc(b.alt || b.caption || "")}" loading="lazy">`;
-        return `<figure class="blk figure"${idAttr(b)}>${media}${
+          : `<img src="${esc(A.assetUrl(m, b.src || ""))}" alt="${esc(b.alt || b.caption || "")}" loading="lazy" data-zoom="1" data-caption="${esc(A.plain(b.caption || ""))}">`;
+        return `<figure class="blk figure${b.svg ? "" : " is-image"}"${idAttr(b)}>${b.title ? `<div class="dg-head"><span class="dg-head-dot"></span>${il(b.title)}</div>` : ""}${media}${
           b.caption || b.source ? `<figcaption>${il(b.caption || "")}${b.source ? ` <span class="src-inline">↳ ${esc(b.source)}</span>` : ""}</figcaption>` : ""
         }</figure>`;
+      }
+
+      case "diagram":
+        return A.renderDiagram ? A.renderDiagram(b, ctx) : `<div class="blk blk-error">diagrams.js is not loaded.</div>`;
+
+      case "gallery": {
+        const imgs = A.arr(b.images).map((x) => (typeof x === "string" ? { src: x } : x));
+        return `<figure class="blk gallery"${idAttr(b)}>${b.title ? `<div class="dg-head"><span class="dg-head-dot"></span>${il(b.title)}</div>` : ""}<div class="gallery-grid" style="--n:${Math.min(imgs.length, b.cols || 3)}">${imgs
+          .map(
+            (x) => `<div class="gallery-item"><img src="${esc(A.assetUrl(m, x.src))}" alt="${esc(x.alt || x.caption || "")}" loading="lazy" data-zoom="1" data-caption="${esc(A.plain(x.caption || ""))}">${
+              x.caption ? `<div class="gallery-cap">${il(x.caption)}</div>` : ""
+            }</div>`
+          )
+          .join("")}</div>${b.caption || b.source ? `<figcaption>${il(b.caption || "")}${b.source ? ` <span class="src-inline">↳ ${esc(b.source)}</span>` : ""}</figcaption>` : ""}</figure>`;
       }
 
       case "code":
@@ -493,8 +507,8 @@
     root.innerHTML = `<div class="cmap${vertical ? " cmap-vertical" : ""}"><svg class="cmap-lines" aria-hidden="true"><defs><marker id="cm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs></svg>
       <div class="cmap-cols">${cols
         .map(
-          (col) =>
-            `<div class="cmap-col">${col
+          (col, ci) =>
+            `<div class="cmap-col tone-${A.TONES ? A.TONES[ci % A.TONES.length] : "violet"}">${col
               .map((n) => {
                 const tgt = n.lesson ? `L-${n.lesson}` : n.term ? "" : "";
                 return n.lesson

@@ -11,13 +11,13 @@ const PM6_SVG_PI = (() => {
   const cols = ["Very Low", "Low", "Moderate", "High", "Very High"];
   // r = high (purple on the slide), y = medium (yellow), g = low (teal)
   const z = ["gyrrr", "gyrrr", "gyyyr", "ggggy", "ggggg"];
-  const fill = { r: "#7b3fa0", y: "#e0b43a", g: "#2a9d8f" };
+  const fill = { r: "var(--t-violet)", y: "var(--t-yellow)", g: "var(--t-green)" };
   const risks = { "0,3": "R3", "2,1": "R5", "2,3": "R6", "3,2": "R1", "4,2": "R4", "4,3": "R2" };
   let cells = "";
   rows.forEach((r, i) =>
     cols.forEach((c, j) => {
       const x = 90 + j * 90, y = 20 + i * 44;
-      cells += `<rect x="${x}" y="${y}" width="88" height="42" fill="${fill[z[i][j]]}" opacity="0.85"/>`;
+      cells += `<rect x="${x}" y="${y}" width="88" height="42" style="fill:${fill[z[i][j]]}" opacity="0.8"/>`;
       const k = `${i},${j}`;
       if (risks[k]) cells += `<rect x="${x + 26}" y="${y + 11}" width="36" height="20" rx="10" fill="#1f2a5a"/><text x="${x + 44}" y="${y + 25}" fill="#fff" font-weight="700" text-anchor="middle">${risks[k]}</text>`;
     })
@@ -28,7 +28,7 @@ const PM6_SVG_PI = (() => {
 })();
 
 const PM6_SVG_RESPONSES = `<svg viewBox="0 0 520 210" width="520" xmlns="http://www.w3.org/2000/svg" style="font-family:var(--font-body);font-size:13px">
-<circle cx="140" cy="100" r="90" fill="#7b3fa0" opacity="0.22"/><circle cx="260" cy="100" r="90" fill="#9a9a2e" opacity="0.22"/><circle cx="380" cy="100" r="90" fill="#e07a3a" opacity="0.22"/>
+<circle style="fill:var(--t-violet)" cx="140" cy="100" r="90" opacity="0.22"/><circle style="fill:var(--t-yellow)" cx="260" cy="100" r="90" opacity="0.22"/><circle style="fill:var(--t-orange)" cx="380" cy="100" r="90" opacity="0.22"/>
 <g fill="currentColor" font-weight="700" text-anchor="middle"><text x="110" y="24">Threats (−)</text><text x="260" y="24">Both</text><text x="410" y="24">Opportunities (+)</text></g>
 <g fill="currentColor" text-anchor="middle"><text x="110" y="80">Avoid</text><text x="110" y="104">Mitigate</text><text x="110" y="128">Transfer</text>
 <text x="260" y="92">Escalate</text><text x="260" y="116">Accept</text>
@@ -41,7 +41,7 @@ Academy.module({
   subtitle: "Threats and opportunities, the seven risk processes, the risk register and RBS, qualitative and quantitative analysis, EMV, response strategies, reserves — and the CBK Philippines case.",
   category: "Project Management in Practice",
   icon: "6",
-  color: "#a23b2a",
+  color: "#ff6f61",
   version: "1.0",
   updated: "2026-11-24",
   studyTime: "120–150 min",
@@ -98,6 +98,7 @@ Academy.module({
           source: "Notes p.1",
         },
         { type: "heading", text: "The seven risk processes" },
+        {"type": "diagram", "kind": "cycle", "title": "The seven risk processes", "open": true, "center": "Risk management", "steps": [{"title": "Plan Risk Management", "tag": "Planning", "tone": "violet"}, {"title": "Identify Risks", "tag": "Planning", "tone": "blue"}, {"title": "Qualitative analysis", "tag": "Planning", "text": "P × I, subjective", "tone": "cyan"}, {"title": "Quantitative analysis", "tag": "Planning", "text": "EMV, Monte Carlo", "tone": "green"}, {"title": "Plan Risk Responses", "tag": "Planning", "tone": "yellow"}, {"title": "Implement Risk Responses", "tag": "Executing", "tone": "orange"}, {"title": "Monitor Risks", "tag": "Control", "text": "new risks → back to Identify", "tone": "pink"}], "loop": "Monitor Risks loops back to Identify Risks: risks found during monitoring are added to the register", "source": "Notes p.1; Slide 4"},
         {
           type: "table",
           caption: "The risk management processes (flow)",
@@ -118,6 +119,7 @@ Academy.module({
         { type: "definition", term: "risk", source: "Notes p.2" },
         { type: "definition", term: "threat", source: "Notes p.2" },
         { type: "definition", term: "opportunity", source: "Notes p.2" },
+        {"type": "diagram", "kind": "tree", "title": "From uncertainty to threat or opportunity", "root": {"title": "Uncertainty → Risk", "text": "an uncertain event that may or may not happen"}, "children": [{"title": "Threat (−)", "text": "goal: **reduce** probability and/or impact", "items": ["avoid · mitigate · transfer"], "tone": "red"}, {"title": "Opportunity (+)", "text": "goal: **increase** probability and/or impact", "items": ["exploit · enhance · share"], "tone": "green"}], "source": "Notes p.2"},
         {
           type: "list",
           title: "From uncertainty to threat or opportunity",
@@ -136,6 +138,7 @@ Academy.module({
         },
         { type: "heading", text: "Risk factors" },
         { type: "definition", term: "risk-factors", source: "Notes p.2; Slide 3" },
+        {"type": "diagram", "kind": "cards", "title": "Risk factors", "cards": [{"title": "Probability", "text": "How likely?", "icon": "percent", "tone": "orange"}, {"title": "Possible outcomes", "text": "How much?", "icon": "coins", "tone": "yellow"}, {"title": "Timing", "text": "When?", "icon": "clock", "tone": "violet"}, {"title": "Frequency", "text": "How often?", "icon": "repeat", "tone": "cyan"}], "source": "Notes p.2; Slide 3"},
         {
           type: "table",
           caption: "Risk factors: what to determine when assessing a risk",
@@ -241,6 +244,7 @@ Academy.module({
         },
         { type: "heading", text: "Risk categories and the risk breakdown structure" },
         { type: "definition", term: "rbs", source: "Notes p.3; Slide 5; Kahoot 6 Q5" },
+        {"type": "diagram", "kind": "tree", "title": "Example risk breakdown structure", "root": {"title": "Project risks"}, "children": [{"title": "External", "items": ["regulatory, environmental, governmental", "market shifts", "project sites"], "tone": "blue"}, {"title": "Internal", "items": ["schedule or budget changes", "scope changes", "inexperienced team", "people, materials, equipment"], "tone": "violet"}, {"title": "Technical", "items": ["technology changes", "technical processes", "interfaces"], "tone": "cyan"}, {"title": "Commercial", "items": ["customer stability", "contract terms", "vendors"], "tone": "orange"}, {"title": "Unforeseeable", "items": ["only about 10% of risks"], "tone": "gray"}], "source": "Notes p.3"},
         {
           type: "table",
           caption: "Example RBS",
@@ -276,6 +280,8 @@ Academy.module({
         },
         { type: "heading", text: "The risk register" },
         { type: "definition", term: "risk-register", source: "Notes p.4; Slides 5–6" },
+        {"type": "diagram", "kind": "hub", "title": "What goes into the risk register", "center": {"title": "Risk register", "text": "output of Identify Risks"}, "direction": "in", "items": [{"title": "List of risks", "text": "cause → risk → effect", "icon": "book"}, {"title": "Risk categories", "icon": "layers"}, {"title": "Potential responses", "icon": "shield"}, {"title": "Potential risk owners", "icon": "users"}, {"title": "Root causes", "icon": "search"}], "source": "Notes p.4; Slide 5"},
+        {"type": "figure", "src": "img/slide-06.jpg", "alt": "Slide 6: risk register table", "caption": "Original slide 6: an example risk register.", "source": "Slide 6 (original)"},
         {
           type: "table",
           caption: "Components of the risk register (Notes p.4; Slide 5)",
@@ -361,6 +367,7 @@ Academy.module({
       builds_on: ["identify"],
       blocks: [
         { type: "definition", term: "qualitative", source: "Notes p.5" },
+        {"type": "figure", "src": "img/slide-07.jpg", "alt": "Slide 7: probability and impact matrix", "caption": "Original slide 7: from the risk register to the probability and impact matrix.", "source": "Slide 7 (original)"},
         {
           type: "list",
           items: [
@@ -466,6 +473,8 @@ Academy.module({
       builds_on: ["qualitative"],
       blocks: [
         { type: "definition", term: "quantitative", source: "Notes p.7; Slide 8" },
+        {"type": "diagram", "kind": "compare", "title": "Qualitative vs quantitative", "columns": [{"title": "Qualitative", "items": ["Subjective", "All identified risks", "Standard scales, P × I matrix", "Done first"], "tone": "yellow"}, {"title": "Quantitative", "items": ["Numerical, more objective", "Only the top-ranked risks", "Monte Carlo, tornado, decision tree, EMV", "Done after qualitative"], "tone": "cyan"}], "source": "Notes p.7"},
+        {"type": "figure", "src": "img/slide-08.jpg", "alt": "Slide 8: quantitative risk analysis tools", "caption": "Original slide 8: what quantitative analysis determines, with Monte Carlo, tornado and decision-tree examples.", "source": "Slide 8 (original)"},
         {
           type: "list",
           title: "Purposes of quantitative risk analysis",
@@ -504,8 +513,10 @@ Academy.module({
           ],
           source: "Slides 8–11",
         },
+        {"type": "figure", "src": "img/slide-10.jpg", "alt": "Slide 10: @RISK screenshots", "caption": "Original slide 10: @RISK by Palisade — simulating a financial forecast.", "source": "Slide 10 (original)"},
         { type: "heading", text: "Expected monetary value (EMV)" },
         { type: "definition", term: "emv", source: "Notes p.7; Slide 12; Kahoot 6 Q10" },
+        {"type": "diagram", "kind": "tree", "title": "EMV as a decision tree", "root": {"title": "Project outcome"}, "children": [{"title": "60% × +\\$100,000", "text": "= +\\$60,000", "tone": "green"}, {"title": "40% × −\\$100,000", "text": "= −\\$40,000", "tone": "red"}], "footer": {"title": "EMV = +\\$20,000 profit"}, "source": "Notes p.7"},
         {
           type: "formula",
           label: "Expected monetary value",
@@ -642,11 +653,13 @@ Academy.module({
           md: "- Purchasing insurance is best considered an example of risk **transfer** (Kahoot 6 Q2; Notes p.9, p.12).\n- **Mitigate** is not a valid response to positive uncertainty events — it is a threat response (Kahoot 6 Q8).",
           source: "Kahoot 6 Q2, Q8; Notes p.9",
         },
+        {"type": "figure", "src": "img/slide-14.jpg", "alt": "Slide 14: threats, both, opportunities", "caption": "Original slide 14: contingency reserves and the response strategies.", "source": "Slide 14 (original)"},
         { type: "heading", text: "Risk register updates (results of response planning)" },
         { type: "definition", term: "residual-risk", source: "Notes p.10" },
         { type: "definition", term: "secondary-risk", source: "Notes p.10" },
         { type: "definition", term: "contingency-plan", source: "Notes p.10" },
         { type: "definition", term: "fallback-plan", source: "Notes p.10" },
+        {"type": "diagram", "kind": "flow", "title": "When a risk occurs", "steps": [{"title": "Trigger fires", "text": "the risk event occurs", "tone": "red"}, {"title": "Risk owner carries out the contingency plan", "text": "uses the contingency reserve", "tone": "orange"}, {"title": "Did it work?", "text": "yes → record the result in the register", "tone": "yellow"}, {"title": "No → carry out the fallback plan", "tone": "violet"}, {"title": "Review what's left", "text": "secondary risks (new) · residual risk (left over)", "tone": "cyan"}], "source": "Notes p.10"},
         { type: "definition", term: "risk-owner", source: "Notes p.10, p.12" },
         {
           type: "list",
@@ -671,6 +684,7 @@ Academy.module({
         },
         { type: "heading", text: "Reserves of time and cost" },
         { type: "definition", term: "contingency-reserve-r", source: "Notes p.10" },
+        {"type": "diagram", "kind": "stack", "title": "How reserves build up the budget", "layers": [{"title": "Cost budget", "value": "115", "amount": 115, "text": "+ **management** reserve — unknown unknowns, management approves", "tone": "pink", "total": true}, {"title": "Cost baseline", "value": "110", "amount": 110, "text": "+ **contingency** reserve — known unknowns, PM approves", "tone": "violet"}, {"title": "Activity / work package estimates", "value": "100", "amount": 100, "tone": "cyan"}], "caption": "Figures in k€ from the slides' budget example (Module 5).", "source": "Notes p.10; Module 5 Slide 12"},
         {
           type: "table",
           headers: ["", "Contingency reserves", "Management reserves"],
@@ -996,7 +1010,11 @@ Academy.module({
           kind: "added",
           md: "The \"Response strategy\" column maps each allocation to this module's strategies; it is not in the presentation.",
         },
+        {"type": "diagram", "kind": "hub", "title": "CBK deal structure: who does what", "direction": "none", "center": {"title": "CBK Power Company Ltd", "text": "project company · 25-year BROT · US\\$488M"}, "items": [{"title": "Impsa", "text": "sponsor · 50% equity", "tone": "violet"}, {"title": "Edison Mission Energy", "text": "sponsor · 50% equity", "tone": "violet"}, {"title": "14 lenders", "text": "US\\$383M facilities", "tone": "blue"}, {"title": "13 PRI underwriters", "text": "political cover on US\\$351M", "tone": "cyan"}, {"title": "O&M agreement", "text": "operations with both sponsors", "tone": "green"}, {"title": "Impsa Construction", "text": "turnkey construction", "tone": "yellow"}, {"title": "Philippine government", "text": "GACA backs NPC", "tone": "orange"}, {"title": "NPC (state utility)", "text": "grants the BROT, pays the fee", "tone": "pink"}], "source": "CBK p.8"},
+        {"type": "figure", "src": "img/case-08.jpg", "alt": "CBK page 8: deal structure diagram", "caption": "Original page 8 of the group's presentation: deal structure.", "source": "CBK p.8 (original)"},
         { type: "heading", text: "Capital structure" },
+        {"type": "diagram", "kind": "donut", "title": "Financing mix: US\\$488 million", "center": "72% debt", "segments": [{"title": "Term loan, insured (12.5 years)", "value": 351, "display": "US$351M", "tone": "blue"}, {"title": "Equity (Impsa and Edison)", "value": 137, "display": "US$137M", "tone": "green"}], "caption": "Project cost = term loan + equity. The US\\$20M and US\\$12M standby facilities back liquidity and performance but do not fund the cost.", "source": "CBK p.11"},
+        {"type": "figure", "src": "img/case-11.jpg", "alt": "CBK page 11: financing bar chart", "caption": "Original page 11 of the group's presentation: financing mix.", "source": "CBK p.11 (original)"},
         {
           type: "table",
           caption: "Financing mix: US\\$488 million, 72% debt",

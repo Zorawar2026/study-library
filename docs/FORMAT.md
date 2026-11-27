@@ -109,13 +109,52 @@ Every block accepts an optional `source` (shown as a small "↳ Slide 9" tag) an
 | `list` | `items`, `ordered`, `title` | Bullet or numbered list |
 | `steps` | `items`, `title` | A procedure |
 | `table` | `headers`, `rows`, `caption` | Any table (cells accept inline Markdown and math) |
-| `figure` | `src` (e.g. `"img/slide-07.png"`) **or** `svg`, `alt`, `caption` | Diagrams and slide images |
+| `figure` | `src` (e.g. `"img/slide-07.jpg"`) **or** `svg`, `alt`, `caption`, optional `title` | A slide image (click to enlarge) or a hand-drawn SVG |
+| `gallery` | `images: [{src, caption, alt}]`, optional `cols`, `title` | Several slide images side by side (each clicks to enlarge) |
+| `diagram` | `kind` plus the fields for that kind (see §4a), optional `title`, `caption` | Coloured diagrams of models and processes |
 | `code` | `code`, `title` | Code or pseudo-code |
 | `usage` | `use: [...]`, `avoid: [...]` | When to use / when not to use |
 | `misconceptions` | `items: [{wrong, right}]` | Common mistakes and corrections |
 | `details` | `summary`, `blocks: [...]`, `open` | Collapsible "show derivation / more detail" |
 
 `conflict` callouts are also listed automatically in the module's *Open questions & source conflicts* section.
+
+## 4a. Diagrams
+
+A `diagram` block draws a coloured model from plain data, so you never write SVG by hand. Every item (step, box, card, layer…) can be a string or an object `{title, text, tone, icon}`. `text` accepts inline Markdown.
+
+- **tone** (optional) is one of `violet`, `cyan`, `green`, `orange`, `pink`, `blue`, `yellow`, `red`, `gray`, or `mod` (the module's own colour). Items without a tone get colours in rotation.
+- **icon** (optional): `target`, `clock`, `repeat`, `coins`, `chart`, `users`, `shield`, `bulb`, `eye`, `check`, `alert`, `layers`, `percent`, `message`, `calendar`, `search`, `flag`, `link`, `star`, `book`, `compass`, `zap`.
+
+| kind | Fields | Good for |
+|---|---|---|
+| `flow` | `steps`, optional `numbered`, `loop` (text for a "feeds back" note); a step can have `tag` | Processes in order (≤5 steps show as a row, more as a timeline) |
+| `cycle` | `steps`, optional `center`, `open: true` (no arrow from last back to first) | Loops: control cycles, risk processes |
+| `hub` | `center`, `items`, `direction` (`out`, `in` or `none`) | One thing linked to several others |
+| `matrix` | `x: {label, ticks}`, `y: {label, ticks}`, `cells` (rows from top to bottom) | 2×2 grids such as power/interest |
+| `stack` | `layers: [{title, value, amount, text, tone, total}]` (top to bottom; `amount` sets the bar width) | Budgets built up from parts |
+| `tree` | `root`, `children` (each can have `items`), optional `footer` | Breakdowns: WBS, RBS, decision trees |
+| `continuum` | `levels`, optional `from`, `to`; a level can have `mark` | Scales from one end to another |
+| `equation` | `terms`, `ops` (e.g. `["+", "="]`); the last term is the result | "A + B = C" relationships |
+| `compare` | `columns` (each with `title`, `text`, `items`) | Side-by-side comparisons (2 columns get a "vs") |
+| `cards` | `cards`, optional `cols` | Sets of types, factors or roles |
+| `layers` | `rows: [{label, boxes, tone}]`, optional `side: {down, up}` | Levels joined by arrows (pyramids, strategy → projects) |
+| `donut` | `segments: [{title, value, display, tone}]`, `unit`, `center` | Shares of a whole |
+| `gantt` | `panels: [{title, scale, rows: [{label, start, len, tone, text, ghost}], links: [{from, to, type, label}], marks: [{at, label}], note}]`, `cols` | Schedules and dependencies (`type` is `FS`, `SS`, `FF` or `SF`) |
+
+Example:
+
+```js
+{ type: "diagram", kind: "cycle", title: "The control loop", center: "Control Scope",
+  steps: ["Work performance data", { title: "Compare with baseline", text: "+ requirements" }, "Variance significant?"],
+  source: "Notes p.8" }
+```
+
+On phones, wide diagrams (cycle, hub) switch to a simple stacked layout automatically.
+
+### Slide images
+
+Save slide images as JPEGs (about 1400 px wide) in `modules/<module-id>/img/` and use them with `figure` (`src: "img/slide-07.jpg"`) or `gallery`. Always write a caption that says what the slide shows, so the text still makes sense without the picture.
 
 ## 5. Markdown and math
 

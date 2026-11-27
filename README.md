@@ -58,6 +58,10 @@ Then do step 4 above.
 
 Every later change (a new module, a fix) goes live a minute or two after you upload or push it.
 
+**Updating a site you already published (browser method).** Open the repository, click **Add file → Upload files**, and drag in the same items as in step 3. Files with the same name are replaced, and new ones (such as the `img` folders) are added. Click **Commit changes**.
+
+GitHub's web uploader takes at most **100 files at a time**. This site is just under that, so one upload normally works. If GitHub says there are too many files, upload in two goes: first `index.html`, `module.html`, `check.html`, `assets`, `docs` and `README.md`, then the `modules` folder.
+
 ## Adding a module
 
 1. Generate it with the prompt in [`docs/PROMPT.md`](docs/PROMPT.md), attaching your notes, the slides, any extra quiz file, plus `docs/FORMAT.md` and `modules/ohms-law/module.js` as format references.
@@ -73,5 +77,6 @@ To add another quiz set to an existing module, create a new file (for example `q
 - **Progress** (completed lessons, quiz scores, known flashcards) is saved in each visitor's own browser. It isn't shared between people or devices.
 - **Public site:** anything you put in `modules/` is public. Only publish material you have the right to share, and credit sources with the `license` and `url` fields in each module's `sources`.
 - **Printing:** printing a module page expands every section, so you get a complete handout.
-- **Theme:** the button at the top right cycles between automatic (follows the system), light and dark.
+- **Theme:** the site opens in the dark theme. The button at the top right switches between dark and light, and the choice is remembered in that browser.
+- **Slide images** open full size when clicked; press Esc or click outside to close.
 - **Fonts** come from Google Fonts. If they can't load, the site falls back to system fonts and still works.

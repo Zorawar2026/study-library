@@ -69,19 +69,19 @@ const PM1_SVG_PLANNING = `<svg viewBox="0 0 640 330" width="640" xmlns="http://w
 <g fill="currentColor" font-weight="700" font-size="12"><text x="48" y="16">Planning efforts (non-agile approach)</text><text x="48" y="186">Agile rolling wave planning</text></g>
 <g stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.6"><path d="M40 150H630M40 150V30"/><path d="M40 320H630M40 320V200"/></g>
 <g fill="none" stroke-width="2">
-<path d="M45 148Q70 100 110 148" stroke="#d4a017"/>
-<path d="M60 148Q170 40 330 148" stroke="#5b3fa0"/>
-<path d="M120 148Q330 20 560 148" stroke="#8a8f99"/>
-<path d="M45 140Q330 70 615 140" stroke="#c0392b" stroke-dasharray="6 4"/>
-<path d="M500 148Q560 100 620 148" stroke="#2c7fb8" stroke-dasharray="3 3"/>
-<path d="M45 318Q65 280 90 318" stroke="#d4a017"/>
-<path d="M80 318Q110 250 140 318M260 318Q290 250 320 318M440 318Q470 250 500 318" stroke="#5b3fa0"/>
-<path d="M110 318Q160 240 230 318M290 318Q340 240 410 318M470 318Q520 240 590 318" stroke="#8a8f99"/>
-<path d="M45 305Q330 270 615 305" stroke="#c0392b" stroke-dasharray="6 4"/>
-<path d="M570 318Q600 280 625 318" stroke="#2c7fb8" stroke-dasharray="3 3"/></g>
+<path style="stroke:var(--t-yellow)" d="M45 148Q70 100 110 148"/>
+<path style="stroke:var(--t-violet)" d="M60 148Q170 40 330 148"/>
+<path style="stroke:var(--t-gray)" d="M120 148Q330 20 560 148"/>
+<path style="stroke:var(--t-red)" d="M45 140Q330 70 615 140" stroke-dasharray="6 4"/>
+<path style="stroke:var(--t-blue)" d="M500 148Q560 100 620 148" stroke-dasharray="3 3"/>
+<path style="stroke:var(--t-yellow)" d="M45 318Q65 280 90 318"/>
+<path style="stroke:var(--t-violet)" d="M80 318Q110 250 140 318M260 318Q290 250 320 318M440 318Q470 250 500 318"/>
+<path style="stroke:var(--t-gray)" d="M110 318Q160 240 230 318M290 318Q340 240 410 318M470 318Q520 240 590 318"/>
+<path style="stroke:var(--t-red)" d="M45 305Q330 270 615 305" stroke-dasharray="6 4"/>
+<path style="stroke:var(--t-blue)" d="M570 318Q600 280 625 318" stroke-dasharray="3 3"/></g>
 <g fill="currentColor"><text x="40" y="164">Start</text><text x="320" y="164">Time</text><text x="600" y="164">Finish</text>
 <text x="150" y="250">Iteration 1</text><text x="330" y="250">Iteration 2</text><text x="510" y="250">Iteration 3</text></g>
-<g font-size="11"><text x="430" y="30" fill="#d4a017">— Initiating</text><text x="430" y="44" fill="#5b3fa0">— Planning</text><text x="430" y="58" fill="#8a8f99">— Executing</text><text x="430" y="72" fill="#c0392b">- - Monitoring &amp; Controlling</text><text x="430" y="86" fill="#2c7fb8">··· Closing</text></g>
+<g font-size="11"><text style="fill:var(--t-yellow)" x="430" y="30">— Initiating</text><text style="fill:var(--t-violet)" x="430" y="44">— Planning</text><text style="fill:var(--t-gray)" x="430" y="58">— Executing</text><text style="fill:var(--t-red)" x="430" y="72">- - Monitoring &amp; Controlling</text><text style="fill:var(--t-blue)" x="430" y="86">··· Closing</text></g>
 <text x="26" y="95" fill="currentColor" transform="rotate(-90 26 95)" font-size="9" text-anchor="middle">level of process interaction</text><text x="26" y="265" fill="currentColor" transform="rotate(-90 26 265)" font-size="9" text-anchor="middle">level of process interaction</text></svg>`;
 
 Academy.module({
@@ -90,7 +90,7 @@ Academy.module({
   subtitle: "What a project is, how projects fit into programs and portfolios, the five process groups, the project charter, the project management plan and how changes are controlled.",
   category: "Project Management in Practice",
   icon: "1",
-  color: "#4b2f8f",
+  color: "#9b87ff",
   version: "1.0",
   updated: "2026-11-24",
   studyTime: "75–90 min",
@@ -148,7 +148,9 @@ Academy.module({
           ],
           source: "Slide 2",
         },
+        {"type": "figure", "src": "img/slide-02.jpg", "alt": "Slide 2: active learning cycle and evaluation weights", "caption": "Original slide 2: active learning — learning content, project teams and a strategic solution for [your company] — and the PMiP evaluation (Commitment 20%, PM Challenge 30%, Final Test 50%).", "source": "Slide 2 (original)"},
         { type: "heading", text: "The Professional Strategic Project Plan" },
+        {"type": "figure", "src": "img/slide-03.jpg", "alt": "Slide 3: logos of six AI tools", "caption": "Original slide 3: AI tools in project management — ChatGPT, Microsoft Copilot, Google Gemini, DALL·E 3, ClickUp and Jasper.", "source": "Slide 3 (original)"},
         {
           type: "text",
           md: "The team project is a **Professional Strategic Project Plan** for an **internationalization / expansion strategy**.\n\nThe slides suggest using **AI tools in project management**. The tools shown are ChatGPT (OpenAI), Microsoft Copilot, Google Gemini, DALL·E 3, ClickUp and Jasper.",
@@ -265,6 +267,7 @@ Academy.module({
         { type: "definition", term: "portfolio", source: "Notes p.1" },
         { type: "definition", term: "program", source: "Notes p.1" },
         { type: "definition", term: "opm", source: "Notes p.1" },
+        {"type": "diagram", "kind": "layers", "title": "The OPM hierarchy", "side": {"down": "Strategy & direction ↓", "up": "Results, benefits & value ↑"}, "rows": [{"boxes": [{"title": "Organizational strategy / OPM", "text": "the strategic framework", "tone": "pink"}]}, {"boxes": [{"title": "[1] Portfolio management", "text": "selects and prioritizes the programs and projects that best achieve the strategic goals", "tone": "violet"}]}, {"boxes": [{"title": "[2] Program management", "text": "coordinates related projects to achieve specific benefits", "tone": "cyan"}]}, {"boxes": [{"title": "[3] Project management", "text": "manages the efforts to develop a specific scope", "tone": "green"}]}], "caption": "Top-down, the work is **driven by** organizational strategy; bottom-up, results feed back so the work stays **aligned with** it.", "source": "Notes p.1–2"},
         {
           type: "table",
           caption: "The OPM hierarchy: strategy flows down, value flows up",
@@ -307,6 +310,7 @@ Academy.module({
           ],
           source: "Slide 9",
         },
+        {"type": "figure", "src": "img/slide-09.jpg", "alt": "Slide 9: sample portfolio diagram", "caption": "Original slide 9: Portfolio – Program – Project.", "source": "Slide 9 (original)"},
         { type: "definition", term: "operations", source: "Notes p.1; Slide 9" },
         {
           type: "table",
@@ -460,7 +464,9 @@ Academy.module({
           md: "Reading Slide 7 from left to right:\n\n1. A **sponsor** brings an **idea, need or problem**, backed by **requirements**.\n2. **Initiating** starts the project.\n3. The project moves through **Planning**, **Executing** and **Control and Monitoring**, managing the knowledge areas along the way.\n4. **Closing** hands over the **product or service** to the **client / user**.",
           source: "Slide 7",
         },
+        {"type": "figure", "src": "img/slide-07.jpg", "alt": "Slide 7: project management big picture", "caption": "Original slide 7: from a sponsor's idea, need or problem to a product or service for the client.", "source": "Slide 7 (original)"},
         { type: "definition", term: "knowledge-area", source: "Slide 7; Kahoot 1 Q3" },
+        {"type": "diagram", "kind": "cards", "title": "The 10 knowledge areas", "cols": 5, "cards": [{"title": "Integration", "text": "pull it all together", "icon": "link"}, {"title": "Scope", "text": "all the work, only the work", "icon": "target"}, {"title": "Schedule", "text": "timely completion", "icon": "calendar"}, {"title": "Costs", "text": "within the approved budget", "icon": "coins"}, {"title": "Quality", "text": "meets requirements", "icon": "star"}, {"title": "Resources", "text": "people, equipment, material", "icon": "users"}, {"title": "Communication", "text": "the right information, in time", "icon": "message"}, {"title": "Risks", "text": "threats and opportunities", "icon": "alert"}, {"title": "Procurement", "text": "buying from outside", "icon": "book"}, {"title": "Stakeholders", "text": "satisfaction", "icon": "users"}], "source": "Slide 7"},
         {
           type: "table",
           caption: "The 10 knowledge areas shown on Slide 7, with where each is covered on this site",
@@ -554,6 +560,7 @@ Academy.module({
           caption: "Level of process interaction over time, from Start to Finish. Top: planning efforts (non-agile approach). Bottom: agile rolling wave planning.",
           source: "Slide 8 (redrawn, simplified)",
         },
+        {"type": "figure", "src": "img/slide-08.jpg", "alt": "Slide 8: curves of process interaction over time", "caption": "Original slide 8: adaptive planning — agile vs. non-agile.", "source": "Slide 8 (original)"},
         { type: "heading", text: "Non-agile planning" },
         {
           type: "list",
@@ -705,6 +712,7 @@ Academy.module({
           source: "Notes p.4",
         },
         { type: "heading", text: "How everything connects during Initiating and Planning" },
+        {"type": "diagram", "kind": "flow", "title": "From need to approved plan", "steps": [{"title": "A need is identified", "text": "by the sponsor or customer", "tone": "pink"}, {"title": "Inputs gathered", "text": "business case, benefits plan, EEFs, OPAs", "tone": "orange"}, {"title": "PM drafts the charter", "tone": "yellow"}, {"title": "Sponsor signs & issues it", "text": "project and PM authorized", "tone": "green"}, {"title": "PM & team develop the PM plan", "tone": "cyan"}, {"title": "PM plan approved", "tone": "violet"}], "source": "Notes p.4"},
         {
           type: "steps",
           items: [
@@ -795,6 +803,7 @@ Academy.module({
         { type: "heading", text: "Baselines" },
         { type: "definition", term: "baseline", source: "Notes p.5" },
         { type: "definition", term: "pmb", source: "Notes p.5" },
+        {"type": "diagram", "kind": "equation", "title": "Performance measurement baseline", "ops": ["+", "+", "="], "terms": [{"title": "Scope baseline", "text": "scope statement + WBS + WBS dictionary", "tone": "green"}, {"title": "Schedule baseline", "text": "agreed dates of work packages and milestones", "tone": "orange"}, {"title": "Cost baseline", "text": "time-phased budget", "tone": "pink"}, {"title": "PMB", "text": "what performance is measured against"}], "source": "Notes p.5"},
         {
           type: "table",
           caption: "Performance measurement baseline = scope baseline + schedule baseline + cost baseline",
@@ -885,6 +894,7 @@ Academy.module({
           source: "Notes p.5",
         },
         { type: "definition", term: "change-request", source: "Notes p.5–6" },
+        {"type": "diagram", "kind": "tree", "title": "The three categories of change request", "root": {"title": "Change request", "text": "evaluated in Perform Integrated Change Control"}, "children": [{"title": "Corrective action", "text": "fix a deviation that **has occurred**", "tone": "orange"}, {"title": "Preventive action", "text": "avoid a **future** deviation", "tone": "cyan"}, {"title": "Defect repair", "text": "fix a **nonconforming** product or component", "tone": "pink"}], "source": "Notes p.5"},
         {
           type: "table",
           caption: "The three main categories of change request",
@@ -904,6 +914,7 @@ Academy.module({
         },
         { type: "heading", text: "Integrated change control" },
         { type: "definition", term: "integrated-change-control", source: "Notes p.6" },
+        {"type": "diagram", "kind": "tree", "title": "Possible outcomes", "root": {"title": "Perform integrated change control", "text": "impact of the change on ALL constraints"}, "children": [{"title": "Approved", "text": "update the plan and documents, then implement", "tone": "green"}, {"title": "Rejected", "text": "e.g. outside the charter or not beneficial", "tone": "red"}, {"title": "Deferred", "text": "decided later", "tone": "yellow"}], "footer": {"title": "Then communicate the decision to the stakeholders affected"}, "source": "Notes p.6–7"},
         {
           type: "list",
           items: [
@@ -927,6 +938,7 @@ Academy.module({
           source: "Notes p.6",
         },
         { type: "heading", text: "The 6 steps for managing changes" },
+        {"type": "diagram", "kind": "flow", "title": "Managing changes in six steps", "steps": [{"title": "Prevent the root cause of changes", "text": "eliminate the need for them", "tone": "violet"}, {"title": "Identify the need for a change", "text": "early discovery = smaller impact", "tone": "blue"}, {"title": "Evaluate the impact", "text": "on scope, then all other constraints", "tone": "cyan"}, {"title": "Create a change request", "text": "follow the change management plan", "tone": "green"}, {"title": "Perform integrated change control", "text": "approve, reject or defer (CCB / sponsor)", "tone": "yellow"}, {"title": "Manage stakeholders' expectations", "text": "communicate the decision", "tone": "pink"}], "source": "Notes p.6–7"},
         {
           type: "steps",
           items: [

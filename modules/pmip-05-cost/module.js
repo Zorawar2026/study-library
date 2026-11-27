@@ -8,14 +8,14 @@
 const PM5_SVG_SCURVE = `<svg viewBox="0 0 600 320" width="600" xmlns="http://www.w3.org/2000/svg" style="font-family:var(--font-body);font-size:12px">
 <defs><marker id="pm5a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
 <g stroke="currentColor" stroke-width="1.4" fill="none"><path d="M50 290H580" marker-end="url(#pm5a)"/><path d="M50 290V20" marker-end="url(#pm5a)"/><path d="M290 290V40" stroke-dasharray="4 4" opacity="0.6"/></g>
-<path d="M50 290C150 280 220 220 290 125" stroke="#c0392b" stroke-width="2.5" fill="none"/>
-<path d="M290 125C360 70 430 62 520 60" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 5" fill="none"/>
-<path d="M50 290C160 270 230 210 290 165C360 115 430 100 500 98" stroke="#2f7a3e" stroke-width="2.5" fill="none"/>
-<path d="M50 290C170 280 240 250 290 212" stroke="#2c7fb8" stroke-width="2.5" fill="none"/>
-<path d="M290 212C360 150 430 110 500 98" stroke="#2f7a3e" stroke-width="1.6" stroke-dasharray="6 4" fill="none"/>
+<path style="stroke:var(--t-red)" d="M50 290C150 280 220 220 290 125" stroke-width="2.5" fill="none"/>
+<path style="stroke:var(--t-red)" d="M290 125C360 70 430 62 520 60" stroke-width="2" stroke-dasharray="7 5" fill="none"/>
+<path style="stroke:var(--t-green)" d="M50 290C160 270 230 210 290 165C360 115 430 100 500 98" stroke-width="2.5" fill="none"/>
+<path style="stroke:var(--t-blue)" d="M50 290C170 280 240 250 290 212" stroke-width="2.5" fill="none"/>
+<path style="stroke:var(--t-green)" d="M290 212C360 150 430 110 500 98" stroke-width="1.6" stroke-dasharray="6 4" fill="none"/>
 <g stroke="currentColor" stroke-width="1.2" fill="none"><path d="M300 165V212" /><path d="M296 165H304M296 212H304"/><path d="M280 125V212"/><path d="M276 125H284M276 212H284"/><path d="M540 60V98"/><path d="M536 60H544M536 98H544"/><path d="M270 60V125" stroke-dasharray="2 3"/></g>
-<g font-weight="700"><text x="214" y="116" fill="#c0392b">AC</text><text x="232" y="160" fill="#2f7a3e">PV</text><text x="232" y="230" fill="#2c7fb8">EV</text>
-<text x="525" y="52" fill="#c0392b">EAC</text><text x="505" y="115" fill="#2f7a3e">BAC</text><text x="400" y="138" fill="#2f7a3e" font-size="11">TCPI path</text></g>
+<g font-weight="700"><text style="fill:var(--t-red)" x="214" y="116">AC</text><text style="fill:var(--t-green)" x="232" y="160">PV</text><text style="fill:var(--t-blue)" x="232" y="230">EV</text>
+<text style="fill:var(--t-red)" x="525" y="52">EAC</text><text style="fill:var(--t-green)" x="505" y="115">BAC</text><text style="fill:var(--t-green)" x="400" y="138" font-size="11">TCPI path</text></g>
 <g fill="currentColor"><text x="306" y="192">SV</text><text x="272" y="172" text-anchor="end">CV</text><text x="548" y="84">VAC</text><text x="264" y="96" text-anchor="end">ETC</text><text x="22" y="30">Cost</text><text x="545" y="308">Time</text><text x="270" y="306">today</text></g></svg>`;
 
 Academy.module({
@@ -24,7 +24,7 @@ Academy.module({
   subtitle: "Prioritising strategic projects, planning and estimating costs, building the budget with reserves, and controlling costs with the Earned Value Management System (EVMS).",
   category: "Project Management in Practice",
   icon: "5",
-  color: "#8e2f5a",
+  color: "#ff6bb0",
   version: "1.0",
   updated: "2026-11-24",
   studyTime: "120–150 min",
@@ -66,6 +66,7 @@ Academy.module({
           source: "Slide 2",
         },
         { type: "heading", text: "The cost processes" },
+        {"type": "diagram", "kind": "flow", "title": "The cost processes", "steps": [{"title": "Plan Cost Management", "tag": "Planning", "text": "cost management plan", "tone": "violet"}, {"title": "Estimate Costs", "tag": "Planning", "text": "top-down or bottom-up", "tone": "cyan"}, {"title": "Determine Budget", "tag": "Planning", "text": "cost baseline + reserves", "tone": "green"}, {"title": "Control Costs", "tag": "Monitoring & Controlling", "text": "measure vs cost baseline (EVMS)", "tone": "pink"}], "loop": "Variances and approved changes feed back into the plan", "source": "Notes p.1"},
         {
           type: "table",
           caption: "Cost management process flow (big picture)",
@@ -89,6 +90,9 @@ Academy.module({
           source: "Slides 9–10, 14–15",
         },
         { type: "heading", text: "Costs at portfolio level" },
+        {"type": "diagram", "kind": "layers", "title": "Three levels", "rows": [{"label": "Portfolio level", "boxes": [{"title": "Expansion Strategy 2030"}], "tone": "pink"}, {"label": "Strategic projects", "boxes": ["New customer experience", "Sustainability", "Artificial Intelligence", "…"], "tone": "violet"}, {"label": "Deliverables / features", "boxes": ["…", "…", "…", "…"], "tone": "cyan"}], "source": "Slide 3"},
+        {"type": "diagram", "kind": "cards", "title": "How would you prioritise the strategic projects?", "cols": 5, "cards": [{"title": "Return on investment", "icon": "percent"}, {"title": "Project costs", "icon": "coins"}, {"title": "Net present value", "icon": "chart"}, {"title": "Project risks", "icon": "alert"}, {"title": "Strategic value", "icon": "star"}], "source": "Slide 4"},
+        {"type": "figure", "src": "img/slide-05.jpg", "alt": "Slide 5: portfolio bubble chart", "caption": "Original slide 5: return on investment vs cost; bubble size = strategic value.", "source": "Slide 5 (original)"},
         {
           type: "list",
           title: "Three levels (Slide 3)",
@@ -195,6 +199,7 @@ Academy.module({
           source: "Notes p.1",
         },
         { type: "heading", text: "What costs should you estimate?" },
+        {"type": "diagram", "kind": "tree", "title": "Total project cost estimate", "root": {"title": "Total project cost estimate", "text": "the cost of ALL efforts"}, "children": [{"title": "Direct project costs", "items": ["Labour", "Equipment", "Materials", "Training for the project"], "tone": "cyan"}, {"title": "Other associated costs", "items": ["Quality efforts", "Risk efforts", "Project management activities", "Project office space", "Overhead (management salaries, general office)"], "tone": "orange"}], "source": "Notes p.2"},
         {
           type: "text",
           md: "Estimate the costs of **all** the efforts needed to complete the project.",
@@ -218,6 +223,7 @@ Academy.module({
         },
         { type: "definition", term: "variable-fixed", source: "Notes p.2" },
         { type: "definition", term: "direct-indirect", source: "Notes p.2" },
+        {"type": "diagram", "kind": "matrix", "title": "Two independent dimensions", "y": {"label": "Changes with the work?", "ticks": ["Variable", "Fixed"]}, "x": {"label": "Attributable to this project?", "ticks": ["Direct", "Indirect"]}, "cells": [[{"title": "Material used; team wages", "tone": "cyan"}, {"title": "Shared utilities that grow with use", "text": "(illustrative)", "tone": "violet"}], [{"title": "Setup cost; rent dedicated to the project", "tone": "green"}, {"title": "Taxes, fringe benefits, general services", "tone": "orange"}]], "source": "Notes p.2"},
         {
           type: "table",
           caption: "The two dimensions combined",
@@ -293,8 +299,10 @@ Academy.module({
           items: ["Parametric estimation", "Analogous estimation (top-down)", "Estimation bottom-up"],
           source: "Slide 10",
         },
+        {"type": "diagram", "kind": "hub", "title": "The role of the PM in estimating", "center": {"title": "Role of the PM"}, "direction": "out", "items": [{"title": "Say how refined estimates must be", "tone": "violet"}, {"title": "Give the team enough information", "tone": "cyan"}, {"title": "Sanity-check the estimates", "tone": "green"}, {"title": "Prevent padding", "tone": "red"}, {"title": "Formulate a reserve for risks", "tone": "yellow"}], "source": "Notes p.3"},
         { type: "definition", term: "analogous", source: "Notes p.3; Slide 11" },
         { type: "definition", term: "bottom-up", source: "Notes p.3; Slide 11" },
+        {"type": "diagram", "kind": "compare", "title": "Two directions of estimating", "columns": [{"title": "Top-down (analogous)", "text": "whole-project estimate from history → split down to deliverables", "items": ["Expert judgment + historical data", "Quick, cheap, early (charter)", "Less accurate"], "tone": "violet"}, {"title": "Bottom-up", "text": "activities → work packages → control accounts → project (roll up)", "items": ["Needs an accurate WBS", "Done by the team doing the work", "More accurate, more expensive"], "tone": "cyan"}], "source": "Notes p.3; Slide 11"},
         {
           type: "table",
           caption: "Top-down (analogous) vs bottom-up",
@@ -375,6 +383,8 @@ Academy.module({
         { type: "heading", text: "Reserves" },
         { type: "definition", term: "contingency-reserve", source: "Notes p.4; Kahoot 5 Q6" },
         { type: "definition", term: "management-reserve", source: "Notes p.4; Kahoot 5 Q1" },
+        {"type": "diagram", "kind": "stack", "title": "Budget build-up (notes example, read from the bottom up)", "layers": [{"title": "Cost budget", "value": "\\$1,720", "amount": 1720, "text": "+ \\$70 **management reserve** (unknown unknowns, management controls)", "tone": "pink", "total": true}, {"title": "Cost baseline", "value": "\\$1,650", "amount": 1650, "text": "+ \\$150 **contingency reserve** (known risks, PM controls)", "tone": "violet"}, {"title": "Project estimate", "value": "\\$1,500", "amount": 1500, "text": "= sum of the control accounts", "tone": "blue"}, {"title": "Control accounts", "value": "400 + 600 + 500", "amount": 1500, "text": "CA1 = WP 1.1 + WP 1.2", "tone": "cyan"}, {"title": "Work packages (CA1)", "value": "150 + 250", "amount": 400, "text": "WP 1.2 = activity 1.2.1 + 1.2.2", "tone": "green"}, {"title": "Activities (WP 1.2)", "value": "100 + 150", "amount": 250, "text": "activity estimates", "tone": "yellow"}], "source": "Notes p.4"},
+        {"type": "diagram", "kind": "compare", "title": "Contingency vs management reserve", "columns": [{"title": "Contingency reserve", "items": ["Known unknowns (identified risks)", "Calculated, e.g. from EMV", "Inside the cost baseline", "The PM approves its use"], "tone": "violet"}, {"title": "Management reserve", "items": ["Unknown unknowns", "Estimated, e.g. 5% of cost", "Outside the baseline, inside the budget", "Management approves its use"], "tone": "pink"}], "source": "Notes p.4; Module 6 notes p.10"},
         {
           type: "formula",
           label: "Budget build-up",
@@ -403,6 +413,8 @@ Academy.module({
           source: "Notes p.4–5; Kahoot 5 Q1, Q6",
         },
         { type: "heading", text: "The slides' budget: from direct costs to price" },
+        {"type": "diagram", "kind": "stack", "title": "Slide 12 budget, read from the bottom up", "layers": [{"title": "Budget", "value": "180k€", "amount": 180, "text": "+ **margin** (+X%) — profit", "tone": "pink", "total": true}, {"title": "", "value": "130k€", "amount": 130, "text": "+ **indirect costs** (+10% to 15%) — organisational structure", "tone": "orange"}, {"title": "", "value": "115k€", "amount": 115, "text": "+ **management reserve** (+<5%) — unknown risks", "tone": "yellow"}, {"title": "", "value": "110k€", "amount": 110, "text": "+ **contingency reserve** (+<10%) — known risks", "tone": "green"}, {"title": "Project", "value": "100k€", "amount": 100, "text": "**direct costs** = 30k€ + 50k€ + 20k€", "tone": "cyan"}], "source": "Slide 12"},
+        {"type": "figure", "src": "img/slide-12.jpg", "alt": "Slide 12: budget build-up from work packages", "caption": "Original slide 12: from work packages to budget.", "source": "Slide 12 (original)"},
         {
           type: "table",
           caption: "Budget build-up on Slide 12 (read from the bottom up)",
@@ -525,10 +537,12 @@ Academy.module({
           source: "Notes p.5",
         },
         { type: "heading", text: "The Earned Value Management System (EVMS)" },
+        {"type": "figure", "src": "img/slide-15.jpg", "alt": "Slide 15: S-curves of AC, PV and EV", "caption": "Original slide 15: the EVMS S-curves.", "source": "Slide 15 (original)"},
         { type: "definition", term: "evms", source: "Slides 15–17" },
         { type: "definition", term: "pv", source: "Slide 16" },
         { type: "definition", term: "ev", source: "Slide 16" },
         { type: "definition", term: "ac", source: "Slide 16" },
+        {"type": "diagram", "kind": "cards", "title": "The three EVMS values", "cols": 3, "cards": [{"title": "PV — planned value", "text": "budget for the work **planned** by now", "icon": "calendar", "tone": "green"}, {"title": "EV — earned value", "text": "budget value of the work **actually done**", "icon": "check", "tone": "blue"}, {"title": "AC — actual cost", "text": "what the work done **actually cost**", "icon": "coins", "tone": "red"}], "source": "Slide 16"},
         {
           type: "text",
           md: "**PV** is the baseline. **PV and EV** together give the **schedule variance**; **EV and AC** together give the **cost variance** (Slide 17).",
@@ -562,6 +576,7 @@ Academy.module({
         { type: "definition", term: "cv", source: "Slide 18" },
         { type: "definition", term: "spi", source: "Slide 18; Kahoot 5 Q5" },
         { type: "definition", term: "cpi", source: "Slide 18" },
+        {"type": "diagram", "kind": "matrix", "title": "Reading SPI and CPI together", "y": {"label": "Cost", "ticks": ["CPI > 1 · CV > 0", "CPI < 1 · CV < 0"]}, "x": {"label": "Schedule", "ticks": ["SPI < 1 · SV < 0", "SPI > 1 · SV > 0"]}, "cells": [[{"title": "Behind schedule, under budget", "text": "e.g. CPI 1.3, SPI 0.8", "tone": "yellow"}, {"title": "Ahead of schedule, under budget", "text": "the best case", "tone": "green"}], [{"title": "Behind schedule, over budget", "text": "the worst case", "tone": "red"}, {"title": "Ahead of schedule, over budget", "tone": "orange"}]], "source": "Slide 18; Kahoot 5 Q7"},
         {
           type: "table",
           caption: "Reading the status",
@@ -650,6 +665,7 @@ Academy.module({
         { type: "definition", term: "eac", source: "Slide 22; Kahoot 5 Q3–Q4" },
         { type: "definition", term: "vac", source: "Slide 22" },
         { type: "definition", term: "tcpi", source: "Slide 22" },
+        {"type": "figure", "src": "img/slide-21.jpg", "alt": "Slide 21: S-curves with forecasts", "caption": "Original slide 21: other indicators — EAC, ETC, VAC and TCPI on the S-curves.", "source": "Slide 21 (original)"},
         {
           type: "formula",
           label: "Forecasting formulas (Slide 22)",
@@ -750,7 +766,9 @@ Academy.module({
           answer: "Ahead of schedule (SPI 1.5) and under budget (CPI 1.2).",
           source: "Slides 19–20 (PV, AC and EV are given on Slide 20; the indices and forecasts were calculated from them)",
         },
+        {"type": "figure", "src": "img/slide-20.jpg", "alt": "Slide 20: Gantt chart with PV, AC and EV", "caption": "Original slide 20: the 10-month example — PV 200.000 €, AC 250.000 €, EV 300.000 € at the end of month 2.", "source": "Slide 20 (original)"},
         { type: "heading", text: "EVMS in scheduling software (Slides 23–27)" },
+        {"type": "figure", "src": "img/slide-26.jpg", "alt": "Slide 26: EVMS cost report table", "caption": "Original slide 26: cost variance, %CV, CPI, EAC and TCPI in the scheduling software.", "source": "Slide 26 (original)"},
         {
           type: "text",
           md: "Slides 23–27 show the same project schedule used in Module 4 (A1, A2, A3 → work packages → activities, with resources R1 and R2), first with its **planned value**, then with **earned value and actual cost**, then the **schedule variance, %SV and SPI**, then the **cost variance, %CV, CPI, EAC and TCPI**. Slide 27 puts the four views side by side.",

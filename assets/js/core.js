@@ -313,9 +313,8 @@
 
   /* ---------- Theme ---------- */
   A.applyTheme = () => {
-    const t = A.store.get("theme", "auto");
-    if (t === "auto") document.documentElement.removeAttribute("data-theme");
-    else document.documentElement.setAttribute("data-theme", t);
+    const t = A.store.get("theme", "dark") === "light" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", t);
     const ICONS = {
       dark: '<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>',
       light: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
@@ -332,9 +331,8 @@
   // Printing: open every collapsible so nothing is hidden on paper.
   window.addEventListener("beforeprint", () => A.$$("details").forEach((d) => (d.open = true)));
   A.cycleTheme = () => {
-    const order = ["auto", "light", "dark"];
-    const cur = A.store.get("theme", "auto");
-    A.store.set("theme", order[(order.indexOf(cur) + 1) % order.length]);
+    const cur = A.store.get("theme", "dark") === "light" ? "light" : "dark";
+    A.store.set("theme", cur === "dark" ? "light" : "dark");
     A.applyTheme();
   };
   document.addEventListener("click", (e) => {
@@ -349,6 +347,19 @@
     if (!m.title) add("error", "module", "Missing title.");
     if (!m.lessons.length) add("error", "module", "No lessons.");
     if (!m.terms.length) add("warn", "module", "No terms — the Quick Reference tab will be empty.");
+
+    // Every content block must be a known type; diagrams must be a known kind.
+    const KNOWN = ["text", "intuition", "heading", "definition", "formula", "example", "callout", "quote", "list", "steps", "table", "figure", "gallery", "code", "usage", "misconceptions", "details", "diagram"];
+    const checkBlocks = (blocks, where) =>
+      A.arr(blocks).forEach((b, i) => {
+        if (!b || typeof b === "string") return;
+        if (!KNOWN.includes(b.type)) add("error", where, `block ${i + 1} has unknown type "${b.type}".`);
+        if (b.type === "diagram" && A.diagramKinds && !A.diagramKinds.includes(b.kind)) add("error", where, `diagram block ${i + 1} has unknown kind "${b.kind}".`);
+        if (b.type === "figure" && !b.src && !b.svg) add("error", where, `figure block ${i + 1} has neither src nor svg.`);
+        if (b.blocks) checkBlocks(b.blocks, where);
+      });
+    m.lessons.forEach((l) => checkBlocks(l.blocks, `lesson ${l.id}`));
+    checkBlocks(m.teachingNotes, "teaching notes");
 
     const dup = (list, kind) => {
       const seen = new Set();

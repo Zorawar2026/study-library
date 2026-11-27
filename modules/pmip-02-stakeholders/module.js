@@ -8,7 +8,7 @@
 
 const PM2_SVG_SALIENCE = `<svg viewBox="0 0 520 380" width="520" xmlns="http://www.w3.org/2000/svg" style="font-family:var(--font-body);font-size:12px">
 <g stroke="currentColor" stroke-width="1.6" fill-opacity="0.14">
-<circle cx="190" cy="150" r="105" fill="#c0392b"/><circle cx="330" cy="150" r="105" fill="#2c7fb8"/><circle cx="260" cy="260" r="105" fill="#d4a017"/></g>
+<circle style="fill:var(--t-red)" cx="190" cy="150" r="105"/><circle style="fill:var(--t-blue)" cx="330" cy="150" r="105"/><circle style="fill:var(--t-yellow)" cx="260" cy="260" r="105"/></g>
 <g fill="currentColor" font-weight="700" font-size="14" text-anchor="middle">
 <text x="150" y="36">POWER</text><text x="370" y="36">LEGITIMACY</text><text x="260" y="378">URGENCY</text></g>
 <g fill="currentColor" text-anchor="middle">
@@ -27,11 +27,11 @@ const PM2_SVG_KANO = `<svg viewBox="0 0 520 330" width="520" xmlns="http://www.w
 <g fill="currentColor" font-weight="700" text-anchor="middle"><text x="260" y="14">Satisfied</text><text x="260" y="326">Dissatisfied</text></g>
 <g fill="currentColor" font-weight="700"><text x="40" y="155">Need not fulfilled</text><text x="490" y="155" text-anchor="end">Need well fulfilled</text></g>
 <g fill="none" stroke-width="2.5">
-<path d="M50 162Q360 158 470 25" stroke="#c0622b"/>
-<path d="M90 300L460 30" stroke="#2c7fb8"/>
-<path d="M100 300Q190 180 470 168" stroke="#2f7a3e"/>
-<path d="M70 165H470" stroke="#8a8f99" stroke-dasharray="6 4"/></g>
-<g font-weight="700" font-size="12"><text x="330" y="60" fill="#c0622b">Delighters / Attractive</text><text x="390" y="110" fill="#2c7fb8">Satisfiers / Desired</text><text x="330" y="190" fill="#2f7a3e">Dissatisfiers / Must-be</text><text x="120" y="182" fill="#8a8f99">Indifferent</text></g></svg>`;
+<path style="stroke:var(--t-orange)" d="M50 162Q360 158 470 25"/>
+<path style="stroke:var(--t-blue)" d="M90 300L460 30"/>
+<path style="stroke:var(--t-green)" d="M100 300Q190 180 470 168"/>
+<path style="stroke:var(--t-gray)" d="M70 165H470" stroke-dasharray="6 4"/></g>
+<g font-weight="700" font-size="12"><text style="fill:var(--t-orange)" x="330" y="60">Delighters / Attractive</text><text style="fill:var(--t-blue)" x="390" y="110">Satisfiers / Desired</text><text style="fill:var(--t-green)" x="330" y="190">Dissatisfiers / Must-be</text><text style="fill:var(--t-gray)" x="120" y="182">Indifferent</text></g></svg>`;
 
 Academy.module({
   id: "pmip-02-stakeholders",
@@ -39,7 +39,7 @@ Academy.module({
   subtitle: "Strategic project thinking, identifying and analysing stakeholders, the stakeholder register, classification models, engagement levels and the Kano model.",
   category: "Project Management in Practice",
   icon: "2",
-  color: "#1f6f8b",
+  color: "#22c7e8",
   version: "1.0",
   updated: "2026-11-24",
   studyTime: "90–105 min",
@@ -86,6 +86,7 @@ Academy.module({
           source: "Slide 2",
         },
         { type: "heading", text: "How strategy is generated and executed" },
+        {"type": "figure", "src": "img/slide-03.jpg", "alt": "Slide 3: strategy generation wheel", "caption": "Original slide 3: strategy generation between hard systems (commit and execute) and soft systems (vision and purpose), with key risks and key metrics.", "source": "Slide 3 (original)"},
         {
           type: "text",
           md: "Slide 3 places **Strategy Generation** — the process of creating [[strategy|strategy]] — at the centre of a cycle, with two directions:",
@@ -127,6 +128,7 @@ Academy.module({
           md: "Slide 4 has no text. A reasonable reading, in the context of strategic thinking: **the same world looks different depending on where you stand**, so a strategy (and its stakeholders) must be seen from several perspectives.",
         },
         { type: "heading", text: "Linking initiatives to a purpose: business model evolution" },
+        {"type": "figure", "src": "img/slide-05.jpg", "alt": "Slide 5: waves of initiatives over time and capabilities", "caption": "Original slide 5: business model evolution — waves of initiatives from Today towards Purpose.", "source": "Slide 5 (original)"},
         {
           type: "list",
           title: "What Slide 5 shows",
@@ -157,6 +159,8 @@ Academy.module({
         },
         { type: "heading", text: "The 3 Horizons of Strategy" },
         { type: "definition", term: "three-horizons", source: "Slide 15" },
+        {"type": "diagram", "kind": "continuum", "title": "3 Horizons of Strategy", "levels": [{"title": "Horizon 1 · +1 year", "text": "**sustain** — existing markets, mature technology: improvements, extensions, variants, cost reduction", "tone": "green", "mark": "1"}, {"title": "Horizon 2 · +4 years", "text": "**adjacent growth** — emerging markets and technology: next-generation products/services", "tone": "cyan", "mark": "2"}, {"title": "Horizon 3 · +10 years", "text": "**exploration** — new markets and technology: visionary, transformative, new to the world", "tone": "violet", "mark": "3"}], "from": "Today", "to": "The future", "source": "Slide 15"},
+        {"type": "figure", "src": "img/slide-15.jpg", "alt": "Slide 15: three nested horizons by market and technology", "caption": "Original slide 15: the 3 Horizons of Strategy.", "source": "Slide 15 (original)"},
         {
           type: "table",
           caption: "The 3 Horizons of Strategy (Slide 15)",
@@ -228,6 +232,8 @@ Academy.module({
       blocks: [
         { type: "heading", text: "Shifts in the global economy" },
         { type: "definition", term: "global-shifts", source: "Slides 7–11" },
+        {"type": "diagram", "kind": "cards", "title": "Five shifts in the global economy", "cols": 5, "cards": [{"title": "Economic power", "text": "E7 GDP \\$138.2tn vs G7 \\$69.3tn by 2050", "icon": "chart", "tone": "violet"}, {"title": "Demographics", "text": "people aged 60+: 8% → 21% (1950–2050)", "icon": "users", "tone": "pink"}, {"title": "Urbanization", "text": "urban share 50% → 72% by 2050", "icon": "layers", "tone": "orange"}, {"title": "Technology", "text": "6.58 connected devices per person (2020)", "icon": "zap", "tone": "cyan"}, {"title": "Resource scarcity", "text": "+50% energy, +40% water, +35% food by 2030", "icon": "alert", "tone": "green"}], "source": "Slides 7–11"},
+        {"type": "gallery", "images": [{"src": "img/slide-07.jpg", "caption": "Slide 7: shift in global economic power", "alt": "Slide 7: G7 vs E7 GDP bubbles for 2015 and 2050"}, {"src": "img/slide-10.jpg", "caption": "Slide 10: rise in technology", "alt": "Slide 10: connected devices per person 2003–2020"}], "source": "Slides 7, 10 (original)", "cols": 2},
         {
           type: "table",
           caption: "The five shifts, with the figures shown on the slides",
@@ -248,6 +254,7 @@ Academy.module({
         },
         { type: "heading", text: "The industrial revolutions" },
         { type: "definition", term: "industry-5", source: "Slide 12" },
+        {"type": "diagram", "kind": "continuum", "title": "From Industry 1.0 to 5.0", "levels": [{"title": "1.0", "text": "mechanization of production", "mark": "1"}, {"title": "2.0", "text": "mass production", "mark": "2"}, {"title": "3.0", "text": "computers & digitalization", "mark": "3"}, {"title": "4.0", "text": "automation + efficiency", "mark": "4"}, {"title": "5.0", "text": "human–machine collaboration", "mark": "5"}], "source": "Slide 12"},
         {
           type: "table",
           caption: "Industry 1.0 to 5.0 (Slide 12)",
@@ -368,6 +375,7 @@ Academy.module({
         },
         { type: "heading", text: "Stakeholder analysis" },
         { type: "definition", term: "stakeholder-analysis", source: "Notes p.1–2" },
+        {"type": "diagram", "kind": "flow", "title": "Stakeholder analysis, step by step", "steps": [{"title": "Identify ALL project stakeholders"}, {"title": "Determine their requirements"}, {"title": "Determine their expectations"}, {"title": "Determine their interest"}, {"title": "Determine their level of influence"}, {"title": "Determine their level of authority (power)"}, {"title": "Plan to engage stakeholders"}, {"title": "Plan how you will communicate with them", "text": "→ output: the **stakeholder register**"}], "source": "Notes p.1–2"},
         {
           type: "steps",
           title: "Stakeholder analysis steps",
@@ -398,6 +406,7 @@ Academy.module({
         },
         { type: "heading", text: "The stakeholder register" },
         { type: "definition", term: "stakeholder-register", source: "Notes p.2" },
+        {"type": "diagram", "kind": "tree", "title": "What the stakeholder register holds", "root": {"title": "Stakeholder register", "text": "main output of Identify Stakeholders"}, "children": [{"title": "Identification", "items": ["name", "organizational position", "location and contact details", "role on the project"], "tone": "cyan"}, {"title": "Assessment", "items": ["major requirements", "expectations", "potential to influence outcomes", "phase of most influence"], "tone": "violet"}, {"title": "Classification", "items": ["internal / external", "impact, influence, power, interest", "or another model chosen by the PM"], "tone": "pink"}], "source": "Notes p.2"},
         {
           type: "table",
           caption: "What the stakeholder register contains (but is not limited to)",
@@ -498,6 +507,7 @@ Academy.module({
         },
         { type: "heading", text: "Power/interest grid" },
         { type: "definition", term: "power-interest-grid", source: "Notes p.2; Slide 18" },
+        {"type": "diagram", "kind": "matrix", "title": "Power/interest grid", "y": {"label": "Power", "ticks": ["High", "Low"]}, "x": {"label": "Interest", "ticks": ["Low", "High"]}, "cells": [[{"title": "Keep satisfied", "text": "high power, low interest", "tone": "yellow"}, {"title": "Manage closely", "text": "key players", "tone": "red"}], [{"title": "Monitor", "text": "minimal effort", "tone": "green"}, {"title": "Keep informed", "text": "low power, high interest", "tone": "blue"}]], "source": "Notes p.2; Slide 18"},
         {
           type: "table",
           caption: "Power/interest grid",
@@ -517,6 +527,7 @@ Academy.module({
         },
         { type: "heading", text: "Power/influence grid" },
         { type: "definition", term: "power-influence-grid", source: "Notes p.3" },
+        {"type": "diagram", "kind": "matrix", "title": "Power/influence grid", "y": {"label": "Power (authority)", "ticks": ["High", "Low"]}, "x": {"label": "Influence (ability to affect the project)", "ticks": ["Low", "High"]}, "cells": [[{"title": "Keep satisfied", "tone": "yellow"}, {"title": "Manage closely", "tone": "red"}], [{"title": "Monitor", "tone": "green"}, {"title": "Keep informed", "tone": "blue"}]], "caption": "Same 2 × 2 logic as the power/interest grid, with influence replacing interest.", "source": "Notes p.3"},
         { type: "definition", term: "level-of-influence", source: "Notes p.3; Kahoot 2 Q6" },
         { type: "heading", text: "Salience model" },
         { type: "definition", term: "salience-model", source: "Notes p.3" },
@@ -551,6 +562,7 @@ Academy.module({
         },
         { type: "heading", text: "Stakeholder cube" },
         { type: "definition", term: "stakeholder-cube", source: "Notes p.4" },
+        {"type": "diagram", "kind": "matrix", "title": "Stakeholder cube: 8 types", "y": {"label": "Attitude · power", "ticks": ["Backer · influential", "Backer · insignificant", "Blocker · influential", "Blocker · insignificant"]}, "x": {"label": "Interest", "ticks": ["Active (high)", "Passive (low)"]}, "cells": [[{"title": "Influential active backer", "tone": "green"}, {"title": "Influential passive backer", "tone": "green"}], [{"title": "Insignificant active backer", "tone": "cyan"}, {"title": "Insignificant passive backer", "tone": "cyan"}], [{"title": "Influential active blocker", "tone": "red"}, {"title": "Influential passive blocker", "tone": "red"}], [{"title": "Insignificant active blocker", "tone": "orange"}, {"title": "Insignificant passive blocker", "tone": "orange"}]], "source": "Notes p.4"},
         {
           type: "table",
           caption: "The 8 stakeholder types of the 2 × 2 × 2 cube",
@@ -653,9 +665,11 @@ Academy.module({
           ],
           source: "Notes p.4–5",
         },
+        {"type": "diagram", "kind": "cycle", "title": "Managing and monitoring stakeholders", "center": "Continuously, throughout the project", "steps": [{"title": "Manage expectations and influence", "tone": "violet"}, {"title": "Communicate with stakeholders", "tone": "cyan"}, {"title": "Monitor communications and engagement", "tone": "green"}], "source": "Notes p.4"},
         { type: "heading", text: "Monitoring stakeholder engagement" },
         { type: "definition", term: "engagement-matrix", source: "Notes p.5" },
         { type: "definition", term: "engagement-levels", source: "Notes p.5" },
+        {"type": "diagram", "kind": "continuum", "title": "The engagement continuum", "from": "Least engaged", "to": "Most engaged", "levels": [{"title": "Unaware", "text": "of the project and its impacts", "tone": "red"}, {"title": "Resistant", "text": "aware, resists the changes", "tone": "orange"}, {"title": "Neutral", "text": "neither supportive nor unsupportive", "tone": "yellow"}, {"title": "Supportive", "text": "supports the work and outcomes", "tone": "green"}, {"title": "Leading", "text": "actively engaged in success", "tone": "cyan"}], "source": "Notes p.5"},
         {
           type: "table",
           caption: "The 5 engagement levels (a continuum)",
@@ -825,8 +839,11 @@ Academy.module({
           kind: "added",
           md: "The hotel example is not in the course materials; it was added to illustrate the four categories.",
         },
+        {"type": "figure", "src": "img/slide-19.jpg", "alt": "Slide 19: Kano chart with the four categories", "caption": "Original slide 19: tailoring solutions with the Kano model.", "source": "Slide 19 (original)"},
         { type: "heading", text: "Strategic agility: WhatsApp" },
         { type: "definition", term: "strategic-agility", source: "Slides 20–22" },
+        {"type": "diagram", "kind": "continuum", "title": "WhatsApp: iterating towards the vision", "levels": [{"title": "2009", "text": "free messenger · 250k users"}, {"title": "2011", "text": "Android, sharing pictures · 1M"}, {"title": "2013", "text": "interoperability · 400M"}, {"title": "2014", "text": "blue check, privacy · 800M"}, {"title": "2020", "text": "web app, calls, payment · 3,000M"}, {"title": "2022", "text": "GDPR policy, ride booking · 4,000M"}], "source": "Slide 20"},
+        {"type": "figure", "src": "img/slide-20.jpg", "alt": "Slide 20: WhatsApp timeline with features and users", "caption": "Original slide 20: WhatsApp's evolution, iteration by iteration.", "source": "Slide 20 (original)"},
         {
           type: "table",
           caption: "WhatsApp's evolution (Slide 20): the solution is adapted after each iteration, moving closer to the vision",

@@ -7,11 +7,11 @@
 
 const PM4_SVG_CPM = `<svg viewBox="0 0 560 270" width="560" xmlns="http://www.w3.org/2000/svg" style="font-family:var(--font-body);font-size:12px">
 <defs><marker id="pm4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
-<marker id="pm4b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker></defs>
+<marker id="pm4b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path style="fill:var(--t-red)" d="M0,0 L10,5 L0,10 z"/></marker></defs>
 <g stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#pm4a)"><path d="M110 125L158 75"/><path d="M250 60H298"/><path d="M250 75L298 190"/><path d="M390 60L438 125"/></g>
-<g stroke="#c0392b" stroke-width="2.5" fill="none" marker-end="url(#pm4b)"><path d="M110 155L158 205"/><path d="M250 220H298"/><path d="M390 205L438 155"/></g>
+<g style="stroke:var(--t-red)" stroke-width="2.5" fill="none" marker-end="url(#pm4b)"><path d="M110 155L158 205"/><path d="M250 220H298"/><path d="M390 205L438 155"/></g>
 <g style="fill:var(--surface);stroke:currentColor;stroke-width:1.5"><rect x="20" y="110" width="90" height="60" rx="6"/><rect x="160" y="30" width="90" height="60" rx="6"/><rect x="300" y="30" width="90" height="60" rx="6"/></g>
-<g style="fill:var(--surface);stroke:#c0392b;stroke-width:2.5"><rect x="20" y="110" width="90" height="60" rx="6"/><rect x="160" y="190" width="90" height="60" rx="6"/><rect x="300" y="190" width="90" height="60" rx="6"/><rect x="440" y="110" width="90" height="60" rx="6"/></g>
+<g style="fill:var(--surface);stroke:var(--t-red);stroke-width:2.5"><rect x="20" y="110" width="90" height="60" rx="6"/><rect x="160" y="190" width="90" height="60" rx="6"/><rect x="300" y="190" width="90" height="60" rx="6"/><rect x="440" y="110" width="90" height="60" rx="6"/></g>
 <g fill="currentColor" font-size="11">
 <text x="26" y="124">0</text><text x="104" y="124" text-anchor="end">3</text><text x="26" y="164">0</text><text x="104" y="164" text-anchor="end">3</text>
 <text x="166" y="44">3</text><text x="244" y="44" text-anchor="end">5</text><text x="166" y="84">5</text><text x="244" y="84" text-anchor="end">7</text>
@@ -20,14 +20,14 @@ const PM4_SVG_CPM = `<svg viewBox="0 0 560 270" width="560" xmlns="http://www.w3
 <text x="306" y="204">7</text><text x="384" y="204" text-anchor="end">12</text><text x="306" y="244">7</text><text x="384" y="244" text-anchor="end">12</text>
 <text x="446" y="124">12</text><text x="524" y="124" text-anchor="end">14</text><text x="446" y="164">12</text><text x="524" y="164" text-anchor="end">14</text></g>
 <g fill="currentColor" text-anchor="middle" font-weight="700" font-size="14"><text x="65" y="145">A · 3</text><text x="205" y="65">B · 2</text><text x="205" y="225">C · 4</text><text x="345" y="65">D · 2</text><text x="345" y="225">E · 5</text><text x="485" y="145">F · 2</text></g>
-<g fill="#2c7fb8" font-weight="700" text-anchor="middle"><text x="205" y="22">slack B = 2</text><text x="345" y="22">slack D = 5</text></g>
-<g fill="currentColor" font-size="10" opacity="0.8"><text x="20" y="20">Node: ES (top left) · EF (top right)</text><text x="20" y="34">LS (bottom left) · LF (bottom right)</text><text x="400" y="262" fill="#c0392b" font-weight="700" font-size="11">critical path A–C–E–F = 14</text></g></svg>`;
+<g style="fill:var(--t-blue)" font-weight="700" text-anchor="middle"><text x="205" y="22">slack B = 2</text><text x="345" y="22">slack D = 5</text></g>
+<g fill="currentColor" font-size="10" opacity="0.8"><text x="20" y="20">Node: ES (top left) · EF (top right)</text><text x="20" y="34">LS (bottom left) · LF (bottom right)</text><text style="fill:var(--t-red)" x="400" y="262" font-weight="700" font-size="11">critical path A–C–E–F = 14</text></g></svg>`;
 
 const PM4_SVG_LEVEL = `<svg viewBox="0 0 560 200" width="560" xmlns="http://www.w3.org/2000/svg" style="font-family:var(--font-body);font-size:11px">
 <g fill="currentColor" font-weight="700" font-size="12"><text x="20" y="16">Before levelling</text><text x="300" y="16">After levelling</text></g>
 <g stroke="currentColor" stroke-width="1" opacity="0.6"><path d="M20 170H250M300 170H540"/></g>
-<g fill="#c0622b"><rect x="40" y="145" width="40" height="25"/><rect x="110" y="95" width="40" height="75"/><rect x="180" y="155" width="40" height="15"/></g>
-<g fill="#2c7fb8"><rect x="310" y="135" width="40" height="35"/><rect x="368" y="135" width="40" height="35"/><rect x="426" y="135" width="40" height="35"/><rect x="484" y="160" width="40" height="10"/></g>
+<g style="fill:var(--t-orange)"><rect x="40" y="145" width="40" height="25"/><rect x="110" y="95" width="40" height="75"/><rect x="180" y="155" width="40" height="15"/></g>
+<g style="fill:var(--t-blue)"><rect x="310" y="135" width="40" height="35"/><rect x="368" y="135" width="40" height="35"/><rect x="426" y="135" width="40" height="35"/><rect x="484" y="160" width="40" height="10"/></g>
 <g fill="currentColor" text-anchor="middle"><text x="60" y="140">5</text><text x="130" y="90">15</text><text x="200" y="150">3</text><text x="330" y="130">7</text><text x="388" y="130">7</text><text x="446" y="130">7</text><text x="504" y="155">2</text>
 <text x="60" y="186">M1</text><text x="130" y="186">M2</text><text x="200" y="186">M3</text><text x="330" y="186">M1</text><text x="388" y="186">M2</text><text x="446" y="186">M3</text><text x="504" y="186">M4</text></g>
 <text x="420" y="60" fill="currentColor" text-anchor="middle" opacity="0.8">flatter, but one month longer</text></svg>`;
@@ -38,7 +38,7 @@ Academy.module({
   subtitle: "Planning the schedule, defining and sequencing activities, estimating durations, the critical path method and float, compression and resource optimisation, controlling the schedule, and the agile organisation.",
   category: "Project Management in Practice",
   icon: "4",
-  color: "#b5651d",
+  color: "#ffa24c",
   version: "1.0",
   updated: "2026-11-24",
   studyTime: "120–140 min",
@@ -91,6 +91,7 @@ Academy.module({
           source: "Notes p.1",
         },
         { type: "heading", text: "From scope to schedule" },
+        {"type": "diagram", "kind": "flow", "title": "The schedule processes", "steps": [{"title": "Plan Schedule Management", "tag": "Planning", "text": "schedule management plan"}, {"title": "Define Activities", "tag": "Planning", "text": "activity list, milestone list"}, {"title": "Sequence Activities", "tag": "Planning", "text": "network diagram"}, {"title": "Estimate Activity Durations", "tag": "Planning", "text": "effort and duration estimates"}, {"title": "Develop Schedule", "tag": "Planning", "text": "CPM, compression → schedule baseline"}, {"title": "Control Schedule", "tag": "Monitoring & Controlling", "text": "measure vs baseline; corrective & preventive action"}], "loop": "Variances and approved changes feed back into planning", "source": "Notes p.1"},
         {
           type: "text",
           md: "**From scope we have:** the scope statement, the WBS, the WBS dictionary and the traceability matrix (Module 3). **What are the next steps?**",
@@ -123,6 +124,7 @@ Academy.module({
           source: "Notes p.1",
         },
         { type: "heading", text: "The professor's summary: 5 steps from WBS to Gantt chart" },
+        {"type": "figure", "src": "img/slide-02.jpg", "alt": "Slide 2: handwritten schedule management steps", "caption": "Original slide 2: the professor's hand-drawn summary — from WBS to Gantt chart.", "source": "Slide 2 (original)"},
         {
           type: "steps",
           items: [
@@ -224,6 +226,7 @@ Academy.module({
         { type: "definition", term: "effort-duration", source: "Notes p.2" },
         { type: "heading", text: "Define Activities" },
         { type: "definition", term: "activity", source: "Notes p.2" },
+        {"type": "diagram", "kind": "flow", "title": "Decomposition: from project to schedule", "steps": [{"title": "Project", "tone": "pink"}, {"title": "Deliverables", "text": "WBS", "tone": "violet"}, {"title": "Work packages", "text": "lowest WBS level", "tone": "blue"}, {"title": "Activities", "text": "schedule level", "tone": "cyan"}, {"title": "Network diagram", "text": "sequenced", "tone": "green"}], "source": "Notes p.2"},
         {
           type: "steps",
           title: "Decomposition",
@@ -238,6 +241,7 @@ Academy.module({
         },
         { type: "heading", text: "Rolling wave planning" },
         { type: "definition", term: "rolling-wave", source: "Notes p.3" },
+        {"type": "diagram", "kind": "continuum", "title": "Rolling wave: the detail rolls forward", "from": "Now", "to": "Far future", "levels": [{"title": "Near term", "text": "detailed activities", "tone": "green"}, {"title": "Mid term", "text": "work packages", "tone": "cyan"}, {"title": "Far future", "text": "high-level deliverables / planning packages", "tone": "violet"}], "source": "Notes p.3"},
         {
           type: "table",
           caption: "As time passes, the \"detail wave\" rolls forward",
@@ -320,6 +324,7 @@ Academy.module({
         },
         { type: "heading", text: "The four logical relationships" },
         { type: "definition", term: "logical-relationship", source: "Notes p.3–4" },
+        {"type": "diagram", "kind": "gantt", "title": "The four logical relationships", "panels": [{"title": "Finish-to-Start (FS) — most common", "scale": 10, "rows": [{"label": "A (predecessor)", "start": 0, "len": 4, "tone": "violet"}, {"label": "B (successor)", "start": 4, "len": 4, "tone": "cyan"}], "links": [{"from": 0, "to": 1, "type": "FS"}], "note": "A must **finish** before B can **start**."}, {"title": "Start-to-Start (SS)", "scale": 10, "rows": [{"label": "A (predecessor)", "start": 0, "len": 6, "tone": "violet"}, {"label": "B (successor)", "start": 2, "len": 5, "tone": "cyan"}], "links": [{"from": 0, "to": 1, "type": "SS"}], "note": "A must **start** before B can **start**."}, {"title": "Finish-to-Finish (FF)", "scale": 10, "rows": [{"label": "A (predecessor)", "start": 0, "len": 6, "tone": "violet"}, {"label": "B (successor)", "start": 3, "len": 4, "tone": "cyan"}], "links": [{"from": 0, "to": 1, "type": "FF"}], "note": "A must **finish** before B can **finish**."}, {"title": "Start-to-Finish (SF) — rarely used", "scale": 10, "rows": [{"label": "B (successor)", "start": 0, "len": 6, "tone": "cyan"}, {"label": "A (predecessor)", "start": 5, "len": 4, "tone": "violet"}], "links": [{"from": 1, "to": 0, "type": "SF"}], "note": "A must **start** before B can **finish**."}], "caption": "The first word belongs to the predecessor (A), the second to the successor (B).", "source": "Notes p.3–4"},
         {
           type: "table",
           caption: "The four logical relationships (A = predecessor, B = successor)",
@@ -341,6 +346,7 @@ Academy.module({
         },
         { type: "heading", text: "Types of dependency" },
         { type: "definition", term: "dependency", source: "Notes p.4" },
+        {"type": "diagram", "kind": "matrix", "title": "Dependency types can be combined", "y": {"label": "Logic", "ticks": ["Mandatory (hard)", "Discretionary (soft)"]}, "x": {"label": "Who controls it", "ticks": ["External", "Internal"]}, "cells": [[{"title": "Mandatory + external", "text": "e.g. a required government approval", "tone": "red"}, {"title": "Mandatory + internal", "text": "e.g. design before build", "tone": "orange"}], [{"title": "Discretionary + external", "text": "e.g. chosen to wait for a supplier demo", "tone": "blue"}, {"title": "Discretionary + internal", "text": "e.g. finish the manual before training — can be changed to fast track", "tone": "green"}]], "caption": "The combination examples are illustrative; the notes state only that types can be combined.", "source": "Notes p.4"},
         {
           type: "table",
           caption: "Types of dependency",
@@ -362,6 +368,7 @@ Academy.module({
         { type: "heading", text: "Leads and lags" },
         { type: "definition", term: "lead", source: "Notes p.4; Slide 7" },
         { type: "definition", term: "lag", source: "Notes p.4; Slide 7" },
+        {"type": "diagram", "kind": "gantt", "title": "Lead and lag", "panels": [{"title": "Lead: start before the predecessor finishes", "scale": 30, "rows": [{"label": "Database design", "start": 0, "len": 20, "tone": "violet"}, {"label": "Web page design", "start": 15, "len": 10, "tone": "cyan"}], "links": [{"from": 0, "to": 1, "type": "FS", "label": "−5 days"}], "note": "FS with a 5-day lead: web design starts on day 16 instead of 21."}, {"title": "Lag: waiting time", "scale": 30, "rows": [{"label": "Write draft", "start": 0, "len": 20, "tone": "violet"}, {"label": "Edit draft", "start": 15, "len": 15, "tone": "cyan"}], "links": [{"from": 0, "to": 1, "type": "SS", "label": "SS + 15"}], "note": "SS + 15: editing starts 15 days after writing starts."}], "source": "Notes p.4"},
         {
           type: "example",
           title: "A lead and a lag",
@@ -381,6 +388,7 @@ Academy.module({
         },
         { type: "heading", text: "The network diagram" },
         { type: "definition", term: "network-diagram", source: "Notes p.3; Slide 7" },
+        {"type": "figure", "src": "img/slide-07.jpg", "alt": "Slide 7: precedence network from Begin to End", "caption": "Original slide 7: the network diagram, critical path, floats, lead and lag.", "source": "Slide 7 (original)"},
         {
           type: "list",
           title: "The example network on Slide 7",
@@ -475,6 +483,7 @@ Academy.module({
         },
         { type: "heading", text: "Estimating techniques (Slide 17)" },
         { type: "definition", term: "estimating-techniques", source: "Slide 17" },
+        {"type": "diagram", "kind": "cards", "title": "Estimating techniques", "cols": 5, "cards": [{"title": "Expert judgment", "icon": "bulb"}, {"title": "Analogous", "text": "top-down, historical data", "icon": "book"}, {"title": "Parametric", "text": "an algorithm: 1,000 m ÷ 25 m/h = 40 h", "icon": "percent"}, {"title": "Group decision making", "text": "brainstorming", "icon": "users"}, {"title": "Reserve analysis", "text": "contingency buffers", "icon": "shield"}], "source": "Slide 17"},
         {
           type: "table",
           headers: ["Technique", "Description"],
@@ -503,6 +512,7 @@ Academy.module({
         },
         { type: "heading", text: "Padding vs proper estimating" },
         { type: "definition", term: "padding", source: "Notes p.5" },
+        {"type": "diagram", "kind": "flow", "title": "Instead of padding", "steps": [{"title": "Unknowns?", "tone": "yellow"}, {"title": "Clarify", "text": "WBS, WBS dictionary, PM information", "tone": "cyan"}, {"title": "Still uncertain?", "tone": "orange"}, {"title": "Identify it as a risk", "tone": "pink"}, {"title": "Contingency reserve", "text": "visible, not hidden", "tone": "green"}], "source": "Notes p.5"},
         {
           type: "example",
           title: "The scenario in the notes",
@@ -578,6 +588,7 @@ Academy.module({
         { type: "heading", text: "Critical path method (CPM)" },
         { type: "definition", term: "cpm", source: "Notes p.6; Kahoot 4 Q1" },
         { type: "definition", term: "critical-path", source: "Notes p.6; Slides 7, 13" },
+        {"type": "figure", "src": "img/slide-03.jpg", "alt": "Slide 3: handwritten critical path method example", "caption": "Original slide 3: the professor's hand-drawn CPM example, Gantt chart, lag/lead and compression.", "source": "Slide 3 (original)"},
         {
           type: "callout",
           kind: "key",
@@ -648,6 +659,7 @@ Academy.module({
         },
         { type: "heading", text: "Float" },
         { type: "definition", term: "float", source: "Notes p.7; Slides 7, 14; Kahoot 4 Q3" },
+        {"type": "diagram", "kind": "compare", "title": "Three kinds of float", "columns": [{"title": "Total float", "text": "delay possible without delaying the **project end date**", "items": ["LS − ES = LF − EF"], "tone": "violet"}, {"title": "Free float", "text": "delay possible without delaying the **early start of the successor**", "tone": "cyan"}, {"title": "Project float", "text": "delay possible without missing the **externally imposed date**", "items": ["negative = behind the required date"], "tone": "pink"}], "source": "Notes p.7"},
         {
           type: "table",
           caption: "Types of float",
@@ -783,6 +795,7 @@ Academy.module({
         },
         { type: "definition", term: "fast-tracking", source: "Notes p.8; Slide 17" },
         { type: "definition", term: "crashing", source: "Notes p.8; Slide 17" },
+        {"type": "diagram", "kind": "gantt", "title": "Compressing a schedule (deadline: day 10)", "cols": 1, "panels": [{"title": "Original plan", "scale": 12, "rows": [{"label": "A", "start": 0, "len": 4, "tone": "violet"}, {"label": "B", "start": 4, "len": 4, "tone": "cyan"}, {"label": "C", "start": 8, "len": 4, "tone": "green"}], "links": [{"from": 0, "to": 1}, {"from": 1, "to": 2}], "marks": [{"at": 10, "label": "deadline"}], "note": "Finishes on day 12 — 2 days late."}, {"title": "Fast tracked", "scale": 12, "rows": [{"label": "A", "start": 0, "len": 4, "tone": "violet"}, {"label": "B", "start": 4, "len": 4, "tone": "cyan"}, {"label": "C", "start": 6, "len": 4, "tone": "green"}], "links": [{"from": 0, "to": 1}], "marks": [{"at": 10, "label": "deadline"}], "note": "C overlaps B: same resources and cost, **more risk**."}, {"title": "Crashed", "scale": 12, "rows": [{"label": "A", "start": 0, "len": 4, "tone": "violet"}, {"label": "B", "start": 4, "len": 2, "tone": "cyan", "text": "2 people"}, {"label": "C", "start": 6, "len": 4, "tone": "green"}], "links": [{"from": 0, "to": 1}, {"from": 1, "to": 2}], "marks": [{"at": 10, "label": "deadline"}], "note": "Extra resources on B: same sequence, **more cost**."}], "caption": "Illustrative example. Fast tracking changes discretionary dependencies; crashing adds resources to critical activities.", "source": "Notes p.8; Slides 3, 17"},
         {
           type: "table",
           caption: "Fast tracking vs crashing",
@@ -804,6 +817,7 @@ Academy.module({
         },
         { type: "heading", text: "Over-allocated resources" },
         { type: "definition", term: "over-allocation", source: "Slide 15" },
+        {"type": "figure", "src": "img/slide-16.jpg", "alt": "Slide 16: histogram of weekly staff hours", "caption": "Original slide 16: staff hours for senior designers — over-allocated from January to March.", "source": "Slide 16 (original)"},
         {
           type: "text",
           md: "Slide 16 shows a weekly histogram of **staff hours for senior designers** from January to May. From January to March the bars are far above the available-capacity line (peaking near 275 hours in one week of January); in April and May they drop below it. The resource is **over-allocated** in the first months and under-used later.",
@@ -881,12 +895,14 @@ Academy.module({
       builds_on: ["compress"],
       blocks: [
         { type: "definition", term: "schedule-baseline", source: "Notes p.6, p.9; Slide 18" },
+        {"type": "figure", "src": "img/slide-18.jpg", "alt": "Slide 18: baseline Gantt chart with resources", "caption": "Original slide 18: the time baseline.", "source": "Slide 18 (original)"},
         {
           type: "text",
           md: "Slide 18 shows the **time baseline**: the approved Gantt chart (project → A1, A2, A3 → work packages 11, 12, 21, 31, 32 → activities 111–322), with each activity's assigned resource (e.g. Project Manager, John, Joana, Alice, Consultant, Anne).",
           source: "Slide 18",
         },
         { type: "definition", term: "control-schedule", source: "Notes p.9" },
+        {"type": "diagram", "kind": "cycle", "title": "The Control Schedule loop", "center": "Control Schedule", "steps": [{"title": "Measure actual progress", "tone": "blue"}, {"title": "Compare with the schedule baseline", "tone": "cyan"}, {"title": "Beyond threshold?", "text": "analyse the cause: critical path, float", "tone": "yellow"}, {"title": "Corrective / preventive action", "text": "e.g. compression", "tone": "orange"}, {"title": "Baseline must change?", "text": "change request → integrated change control", "tone": "pink"}], "source": "Notes p.9"},
         {
           type: "callout",
           kind: "key",
@@ -947,6 +963,7 @@ Academy.module({
       builds_on: ["overview"],
       blocks: [
         { type: "heading", text: "A new organisational paradigm" },
+        {"type": "diagram", "kind": "compare", "title": "From machines to organisms", "columns": [{"title": "Organisations as \"machines\"", "items": ["Top-down hierarchy", "Bureaucracy", "Silos", "Detailed instruction"], "tone": "gray"}, {"title": "Organisations as \"organisms\"", "items": ["Leadership shows direction and enables action", "Quick changes, flexible resources", "Teams built around end-to-end accountability", "Focus on action, not \"boxes and lines\""], "tone": "orange"}], "source": "Slide 8"},
         {
           type: "table",
           caption: "From organisations as \"machines\" to organisations as \"organisms\" (Slide 8)",
@@ -960,6 +977,7 @@ Academy.module({
           source: "Slide 8",
         },
         { type: "heading", text: "The journey to an agile organisation" },
+        {"type": "figure", "src": "img/slide-10.jpg", "alt": "Slide 10: agile organisation roles", "caption": "Original slide 10: tribe, squad, chapter, product owner and agile coach.", "source": "Slide 10 (original)"},
         {
           type: "list",
           items: [
@@ -983,6 +1001,7 @@ Academy.module({
           ],
           source: "Slide 10",
         },
+        {"type": "diagram", "kind": "cards", "title": "Roles at a glance", "cols": 5, "cards": [{"title": "Squad", "text": "≤ 9 people, cross-functional, end-to-end", "icon": "users", "tone": "orange"}, {"title": "Tribe", "text": "squads with interconnected missions", "icon": "layers", "tone": "pink"}, {"title": "Chapter", "text": "expertise across squads", "icon": "book", "tone": "violet"}, {"title": "Product owner", "text": "backlog and priorities", "icon": "flag", "tone": "cyan"}, {"title": "Agile coach", "text": "high-performing teams", "icon": "star", "tone": "green"}], "source": "Slide 10"},
         { type: "heading", text: "The agile project team" },
         {
           type: "text",

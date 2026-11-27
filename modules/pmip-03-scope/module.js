@@ -28,13 +28,13 @@ const PM3_SVG_HUB = `<svg viewBox="0 0 520 260" width="520" xmlns="http://www.w3
 const PM3_SVG_NPV = `<svg viewBox="0 0 640 300" width="640" xmlns="http://www.w3.org/2000/svg" style="font-family:var(--font-body);font-size:12px">
 <defs><marker id="pm3b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
 <g stroke="currentColor" stroke-width="1.3" fill="none"><path d="M70 150H620" marker-end="url(#pm3b)"/><path d="M80 280V20" marker-end="url(#pm3b)"/></g>
-<g stroke="#2c7fb8" stroke-width="1" fill="none" marker-start="url(#pm3b)" marker-end="url(#pm3b)"><path d="M120 40H300"/><path d="M300 40H580"/><path d="M300 245H420"/></g>
-<path d="M80 150H120V188L300 222L420 150" stroke="#c0392b" stroke-width="2.5" fill="none"/><path d="M420 150L580 68" stroke="currentColor" stroke-width="2.5" fill="none"/>
-<g fill="#2c7fb8"><circle cx="120" cy="150" r="5"/><circle cx="300" cy="150" r="5"/><circle cx="420" cy="150" r="5"/><circle cx="580" cy="150" r="5"/></g>
-<g fill="#2c7fb8" text-anchor="middle"><text x="210" y="34">Project Execution</text><text x="440" y="34">Project Results Use</text><text x="360" y="262">Payback</text>
+<g style="stroke:var(--t-blue)" stroke-width="1" fill="none" marker-start="url(#pm3b)" marker-end="url(#pm3b)"><path d="M120 40H300"/><path d="M300 40H580"/><path d="M300 245H420"/></g>
+<path style="stroke:var(--t-red)" d="M80 150H120V188L300 222L420 150" stroke-width="2.5" fill="none"/><path d="M420 150L580 68" stroke="currentColor" stroke-width="2.5" fill="none"/>
+<g style="fill:var(--t-blue)"><circle cx="120" cy="150" r="5"/><circle cx="300" cy="150" r="5"/><circle cx="420" cy="150" r="5"/><circle cx="580" cy="150" r="5"/></g>
+<g style="fill:var(--t-blue)" text-anchor="middle"><text x="210" y="34">Project Execution</text><text x="440" y="34">Project Results Use</text><text x="360" y="262">Payback</text>
 <text x="128" y="140" text-anchor="start">Start</text><text x="300" y="140">Completion</text><text x="420" y="140">Breakeven</text><text x="580" y="140">Close</text></g>
 <g fill="currentColor"><text x="20" y="28">Cash, R</text><text x="600" y="168">Time, t</text><text x="40" y="110">NPV</text>
-<text x="8" y="200">Cost</text><text x="88" y="178" fill="#c0392b">Materials</text><text x="88" y="210" fill="#c0392b">Labor</text></g>
+<text x="8" y="200">Cost</text><text style="fill:var(--t-red)" x="88" y="178">Materials</text><text style="fill:var(--t-red)" x="88" y="210">Labor</text></g>
 <path d="M60 150V68" stroke="currentColor" stroke-dasharray="3 3"/></svg>`;
 
 Academy.module({
@@ -43,7 +43,7 @@ Academy.module({
   subtitle: "The six scope processes, product vs project scope, requirements and the traceability matrix, the scope statement, the WBS and WBS dictionary, the scope baseline, validating and controlling scope, and NPV.",
   category: "Project Management in Practice",
   icon: "3",
-  color: "#2f7a3e",
+  color: "#3dd68c",
   version: "1.0",
   updated: "2026-11-24",
   studyTime: "90–105 min",
@@ -86,6 +86,7 @@ Academy.module({
         },
         { type: "definition", term: "scope-management", source: "Notes p.2" },
         { type: "heading", text: "The six scope management processes" },
+        {"type": "diagram", "kind": "flow", "title": "The scope processes", "steps": [{"title": "Plan Scope Management", "tag": "Planning", "text": "scope management plan", "tone": "violet"}, {"title": "Collect Requirements", "tag": "Planning", "text": "requirements documentation + RTM", "tone": "blue"}, {"title": "Define Scope", "tag": "Planning", "text": "project scope statement", "tone": "cyan"}, {"title": "Create WBS", "tag": "Planning", "text": "WBS + WBS dictionary → scope baseline", "tone": "green"}, {"title": "Validate Scope", "tag": "Monitoring & Controlling", "text": "accepted deliverables or change requests", "tone": "orange"}, {"title": "Control Scope", "tag": "Monitoring & Controlling", "text": "work performance information, change requests", "tone": "pink"}], "caption": "Validate Scope and Control Scope run side by side throughout Monitoring & Controlling.", "source": "Notes p.1"},
         {
           type: "steps",
           title: "Process flow (in order)",
@@ -158,6 +159,7 @@ Academy.module({
         },
         { type: "definition", term: "product-scope", source: "Notes p.2" },
         { type: "definition", term: "project-scope", source: "Notes p.2" },
+        {"type": "diagram", "kind": "equation", "title": "Product scope inside project scope", "ops": ["+", "="], "terms": [{"title": "Product scope", "text": "features and functions of the result", "tone": "cyan"}, {"title": "Management work", "text": "planning, coordination, meetings, reports", "tone": "orange"}, {"title": "Project scope", "text": "all the work to deliver the product"}], "source": "Notes p.2"},
         {
           type: "misconceptions",
           items: [
@@ -225,6 +227,7 @@ Academy.module({
         },
         { type: "heading", text: "Collect Requirements" },
         { type: "definition", term: "requirement", source: "Notes p.3; Kahoot 3 Q4" },
+        {"type": "diagram", "kind": "cards", "title": "Four types of requirement", "cards": [{"title": "Quality", "text": "\"The processor should operate at 3 GHz.\"", "icon": "star", "tone": "violet"}, {"title": "Business processes", "text": "\"You must track and report the project's expenses in this way.\"", "icon": "repeat", "tone": "cyan"}, {"title": "Compliance", "text": "\"By law, we have to meet this safety standard.\"", "icon": "shield", "tone": "green"}, {"title": "Project management", "text": "\"We require risk management procedure X.\"", "icon": "flag", "tone": "orange"}], "source": "Notes p.3"},
         {
           type: "list",
           items: [
@@ -248,6 +251,7 @@ Academy.module({
         },
         { type: "heading", text: "Requirements traceability matrix (RTM)" },
         { type: "definition", term: "rtm", source: "Notes p.3; Kahoot 3 Q10" },
+        {"type": "diagram", "kind": "flow", "title": "What the RTM traces", "numbered": false, "steps": [{"title": "Objective", "text": "why it is needed (charter, business case)", "icon": "target", "tone": "violet"}, {"title": "Requirement", "text": "what stakeholders need", "icon": "message", "tone": "cyan"}, {"title": "Deliverable", "text": "what satisfies it", "icon": "layers", "tone": "green"}, {"title": "Validation", "text": "how it was checked and accepted", "icon": "check", "tone": "orange"}], "caption": "Each requirement is traced back to the objective it serves and forward to the deliverable that meets it.", "source": "Notes p.3; Kahoot 3 Q10"},
         {
           type: "list",
           title: "Why the RTM is needed",
@@ -353,6 +357,7 @@ Academy.module({
           source: "Notes p.4",
         },
         { type: "definition", term: "scope-statement", source: "Notes p.4" },
+        {"type": "diagram", "kind": "cards", "title": "Inside the project scope statement", "cols": 3, "cards": [{"title": "Product scope", "icon": "star"}, {"title": "Project scope + description", "icon": "book"}, {"title": "Deliverables", "icon": "layers"}, {"title": "Acceptance criteria", "icon": "check"}, {"title": "Exclusions", "text": "what is NOT part of the project", "icon": "alert", "tone": "red"}, {"title": "Assumptions & constraints", "icon": "link"}], "source": "Notes p.4"},
         {
           type: "list",
           title: "The project scope statement may include",
@@ -477,6 +482,7 @@ Academy.module({
           md: "The notes say the mapping of work packages to deliverables in the WSC example is \"my best interpretation of the drag-and-drop exercise\".",
           source: "Notes p.5",
         },
+        {"type": "diagram", "kind": "tree", "title": "WBS example: IT services for the World Sports Championship", "root": {"title": "IT services for the WSC project", "text": "level 1 — the final output"}, "children": [{"title": "Technology solutions document", "items": ["Analyze available technology", "Check technology is reviewed by ISC"]}, {"title": "Telecoms document", "items": ["Analyze local mobile operators", "Check coverage & capacity at venues"]}, {"title": "Internet infrastructure", "items": ["Ensure supply of internet services", "Find 2+ global exchange points"]}, {"title": "Telecoms infrastructure", "items": ["Test before sport events", "Access conditions for supplier & integrator"]}, {"title": "Spectrum radio frequencies", "items": ["Frequencies for mobile, radio & Wi-Fi", "Check all wireless spectrum needed"]}, {"title": "Further deliverables", "items": ["Deployment of solutions", "Sports results & information services", "Suppliers' transfer of knowledge"]}], "source": "Notes p.5"},
         { type: "heading", text: "Guidelines for creating a WBS" },
         {
           type: "table",
@@ -515,6 +521,9 @@ Academy.module({
           source: "Notes p.6; Kahoot 3 Q6",
         },
         { type: "heading", text: "The WBS at strategic level (the big picture)" },
+        {"type": "diagram", "kind": "layers", "title": "Strategic WBS: from goals to projects", "rows": [{"label": "Strategic goals", "boxes": [{"title": "Market share", "text": "+5% a year"}, {"title": "Profitability", "text": "+4% a year"}, {"title": "Customer retention", "text": "+8% a year"}, {"title": "Technology readiness", "text": "75% of services"}], "tone": "violet"}, {"label": "Strategic outcome", "boxes": [{"title": "Lead the market, long-term partnership"}], "tone": "pink"}, {"label": "Trends", "boxes": ["Trend 1", "Trend 2", "Trend 3"], "tone": "orange"}, {"label": "Strategic projects", "boxes": ["Project 1", "Project 2", "Project 3", "Project 4", "Project 5", "Project 6"], "tone": "cyan"}, {"label": "Foundation", "boxes": [{"title": "Project management", "text": "what, how, when, how much, what if"}, {"title": "Operations", "text": "admin, legal, finance, supply chain"}], "tone": "green"}], "source": "Slide 24"},
+        {"type": "figure", "src": "img/slide-24.jpg", "alt": "Slide 24: strategic WBS", "caption": "Original slide 24: organise the strategic projects to meet the stakeholders' expectations.", "source": "Slide 24 (original)"},
+        {"type": "gallery", "images": [{"src": "img/slide-25.jpg", "caption": "Slide 25: Airbus aircraft systems WBS", "alt": "Slide 25: aircraft system WBS levels 1 to 3"}, {"src": "img/slide-26.jpg", "caption": "Slide 26: Singapore Airlines customer-experience board", "alt": "Slide 26: sticky notes by travel stage"}, {"src": "img/slide-27.jpg", "caption": "Slide 27: AXA strategic vision", "alt": "Slide 27: AXA business streams"}], "title": "Examples from the slides", "source": "Slides 25–27 (original)", "cols": 3},
         {
           type: "text",
           md: "Slide 24 applies the same decomposition to strategy: **organise the strategic projects to meet the stakeholders' expectations.**",
@@ -651,8 +660,10 @@ Academy.module({
           answer: "The entry also records project, contract number, sheet number, revision (original, dated 3/9/93) and checked/approved signatures.",
           source: "Slide 29",
         },
+        {"type": "figure", "src": "img/slide-29.jpg", "alt": "Slide 29: WBS dictionary form", "caption": "Original slide 29: a WBS dictionary entry for the Power and Lighting Subsystem.", "source": "Slide 29 (original)"},
         { type: "heading", text: "The scope baseline" },
         { type: "definition", term: "scope-baseline", source: "Notes p.6–7" },
+        {"type": "diagram", "kind": "equation", "title": "Scope baseline", "ops": ["+", "+", "="], "terms": [{"title": "Project scope statement", "tone": "cyan"}, {"title": "WBS", "tone": "green"}, {"title": "WBS dictionary", "tone": "yellow"}, {"title": "Scope baseline", "text": "not the scope management plan, not the RTM"}], "source": "Notes p.6–7"},
         {
           type: "formula",
           label: "Scope baseline",
@@ -709,6 +720,7 @@ Academy.module({
       blocks: [
         { type: "heading", text: "Validate Scope" },
         { type: "definition", term: "validate-scope", source: "Notes p.7" },
+        {"type": "diagram", "kind": "flow", "title": "From work to accepted deliverables", "steps": [{"title": "Deliverables", "text": "produced in Executing", "tone": "blue"}, {"title": "Control Quality", "text": "→ **verified** deliverables", "tone": "cyan"}, {"title": "Validate Scope", "text": "with the customer / sponsor", "tone": "violet"}, {"title": "Accepted deliverables", "text": "or change requests if not accepted", "tone": "green"}, {"title": "Close project or phase", "tone": "pink"}], "source": "Notes p.7"},
         {
           type: "list",
           items: [
@@ -758,6 +770,7 @@ Academy.module({
         },
         { type: "heading", text: "Control Scope" },
         { type: "definition", term: "control-scope", source: "Notes p.7–8" },
+        {"type": "diagram", "kind": "cycle", "title": "The Control Scope loop", "center": "Control Scope", "steps": [{"title": "Work performance data", "tone": "blue"}, {"title": "Compare with the scope baseline", "text": "+ requirements & RTM", "tone": "cyan"}, {"title": "Variance significant?", "text": "no → keep monitoring", "tone": "yellow"}, {"title": "Change request", "text": "→ integrated change control", "tone": "orange"}, {"title": "Update plan & documents", "text": "communicate performance", "tone": "green"}], "source": "Notes p.8"},
         {
           type: "list",
           items: [
@@ -860,6 +873,7 @@ Academy.module({
           source: "Slide 30",
         },
         { type: "definition", term: "npv", source: "Slide 30" },
+        {"type": "figure", "src": "img/slide-30.jpg", "alt": "Slide 30: cash flow chart with NPV, payback and breakeven", "caption": "Original slide 30: project cash over time and the NPV formula.", "source": "Slide 30 (original)"},
         {
           type: "formula",
           label: "Net present value",

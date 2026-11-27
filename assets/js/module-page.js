@@ -397,7 +397,30 @@
     if (matchMedia("(max-width: 900px)").matches) A.$(".toc").open = false;
   };
 
+  /* ---------- Click an image to see it full screen ---------- */
+  const lightbox = (img) => {
+    const box = document.createElement("div");
+    box.className = "lightbox";
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-label", "Enlarged image");
+    box.innerHTML = `<button class="lightbox-close" type="button" aria-label="Close">×</button><img src="${esc(img.currentSrc || img.src)}" alt="${esc(img.alt)}">${
+      img.dataset.caption ? `<div class="lightbox-cap">${esc(img.dataset.caption)}</div>` : ""
+    }`;
+    const close = () => {
+      box.remove();
+      document.removeEventListener("keydown", onKey);
+      img.focus && img.focus();
+    };
+    const onKey = (ev) => ev.key === "Escape" && close();
+    box.addEventListener("click", (ev) => (ev.target === box || ev.target.closest(".lightbox-close") || ev.target.tagName === "IMG") && close());
+    document.addEventListener("keydown", onKey);
+    document.body.appendChild(box);
+    A.$(".lightbox-close", box).focus();
+  };
+
   document.addEventListener("click", (e) => {
+    const zoomImg = e.target.closest("img[data-zoom]");
+    if (zoomImg) return lightbox(zoomImg);
     const tab = e.target.closest(".tabs [role=tab]");
     if (tab) return switchTab(tab.dataset.tab);
     const term = e.target.closest("[data-term]");

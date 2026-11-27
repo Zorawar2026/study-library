@@ -12,7 +12,7 @@ const PM7_SVG_FUNNEL = `<svg viewBox="0 0 560 330" width="560" xmlns="http://www
 
 const PM7_SVG_SERIAL = `<svg viewBox="0 0 560 280" width="560" xmlns="http://www.w3.org/2000/svg" style="font-family:var(--font-body);font-size:12px">
 <defs><marker id="pm7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
-<rect x="210" y="40" width="140" height="200" fill="#2c7fb8" opacity="0.12"/>
+<rect style="fill:var(--t-blue)" x="210" y="40" width="140" height="200" opacity="0.12"/>
 <g stroke="currentColor" stroke-width="1.5" fill="none"><path d="M70 240H540" marker-end="url(#pm7a)"/><path d="M70 240V20" marker-end="url(#pm7a)"/></g>
 <path d="M95 60C140 160 180 220 270 222C350 224 420 200 480 90" stroke="currentColor" stroke-width="2.5" fill="none"/>
 <path d="M330 222C400 220 450 216 520 212" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
@@ -28,7 +28,7 @@ Academy.module({
   subtitle: "The three laws of communication, the Mehrabian principle, how messages get lost, primacy and recency, knowing your audience, storytelling and the Pyramid Principle.",
   category: "Project Management in Practice",
   icon: "7",
-  color: "#2a5aa8",
+  color: "#5b9dff",
   version: "1.0",
   updated: "2026-11-24",
   studyTime: "45–60 min",
@@ -70,8 +70,10 @@ Academy.module({
           source: "Slide 2",
           note: "Illustrated by a row of light bulbs with only one lit: the one idea that gets through.",
         },
+        {"type": "diagram", "kind": "cards", "title": "The three laws of communication", "cols": 3, "cards": [{"title": "Law I", "text": "It's impossible not to communicate", "icon": "eye", "tone": "violet"}, {"title": "Law II", "text": "Communication = [Content + Structure] × Relationship", "icon": "link", "tone": "cyan"}, {"title": "Law III", "text": "When B misinterprets A, who is responsible?", "icon": "message", "tone": "pink"}], "source": "Slides 3–6"},
         { type: "heading", text: "Law I — It's impossible not to communicate" },
         { type: "definition", term: "impossible-not-to-communicate", source: "Slide 3" },
+        {"type": "figure", "src": "img/slide-03.jpg", "alt": "Slide 3: five people whose posture is annotated with possible meanings", "caption": "Original slide 3: body language sends messages even in silence.", "source": "Slide 3 (original)"},
         {
           type: "text",
           md: "Slide 3 shows five people whose posture alone sends messages — labelled *nervousness*, *hiding something, but what?*, *menacing*, *confident*, *genuine*, *insecure?*, *indignant*, *wants to leave*, *lying?*. None of them is speaking, yet each is communicating.",
@@ -79,6 +81,8 @@ Academy.module({
         },
         { type: "heading", text: "The Mehrabian principle" },
         { type: "definition", term: "mehrabian", source: "Slide 4" },
+        {"type": "diagram", "kind": "donut", "title": "The Mehrabian principle", "unit": "%", "center": "Feelings", "segments": [{"title": "Body language", "value": 55, "tone": "pink"}, {"title": "Tone of voice", "value": 38, "tone": "blue"}, {"title": "Words", "value": 7, "tone": "red"}], "caption": "Shares for judging feelings and attitudes when words and non-verbal signals disagree.", "source": "Slide 4"},
+        {"type": "figure", "src": "img/slide-04.jpg", "alt": "Slide 4: pie chart 55% body language, 38% tone, 7% words", "caption": "Original slide 4: the Mehrabian principle.", "source": "Slide 4 (original)"},
         {
           type: "table",
           caption: "The Mehrabian principle (Slide 4)",
@@ -94,6 +98,7 @@ Academy.module({
         },
         { type: "heading", text: "Law II — Communication = [Content + Structure] × Relationship" },
         { type: "definition", term: "communication-formula", source: "Slide 5" },
+        {"type": "diagram", "kind": "equation", "title": "Law II", "ops": ["+", "×", "="], "terms": [{"title": "Content", "text": "what you say", "tone": "cyan"}, {"title": "Structure", "text": "how it is organised", "tone": "green"}, {"title": "Relationship", "text": "multiplies everything", "tone": "pink"}, {"title": "Communication"}], "source": "Slide 5"},
         {
           type: "formula",
           label: "Law II",
@@ -171,6 +176,7 @@ Academy.module({
       builds_on: ["laws"],
       blocks: [
         { type: "definition", term: "communication-funnel", source: "Slide 7" },
+        {"type": "figure", "src": "img/slide-07.jpg", "alt": "Slide 7: communication funnel", "caption": "Original slide 7: from what I mean to what the audience remembers.", "source": "Slide 7 (original)"},
         {
           type: "figure",
           svg: PM7_SVG_FUNNEL,
@@ -197,6 +203,7 @@ Academy.module({
         },
         { type: "heading", text: "Primacy and recency" },
         { type: "definition", term: "serial-position", source: "Slide 8" },
+        {"type": "figure", "src": "img/slide-08.jpg", "alt": "Slide 8: U-shaped recall curve", "caption": "Original slide 8: primacy and recency effects.", "source": "Slide 8 (original)"},
         {
           type: "figure",
           svg: PM7_SVG_SERIAL,
@@ -269,6 +276,7 @@ Academy.module({
       blocks: [
         { type: "heading", text: "Know your audience for each story" },
         { type: "definition", term: "know-your-audience", source: "Slide 9" },
+        {"type": "diagram", "kind": "cards", "title": "Know your audience", "cols": 3, "cards": [{"title": "Role", "text": "seniority and urgency", "icon": "users", "tone": "green"}, {"title": "Expectation", "text": "what's in it for them?", "icon": "target", "tone": "cyan"}, {"title": "Familiarity", "text": "with the topic / problem", "icon": "book", "tone": "violet"}], "source": "Slide 9"},
         {
           type: "table",
           caption: "Three questions about the audience (Slide 9)",
@@ -283,6 +291,7 @@ Academy.module({
         },
         { type: "heading", text: "Build contextual narratives = storytelling" },
         { type: "definition", term: "storytelling", source: "Slide 10" },
+        {"type": "diagram", "kind": "flow", "title": "Build a contextual narrative", "steps": [{"title": "Who am I telling my story to?", "text": "audience", "icon": "users", "tone": "green"}, {"title": "Why am I telling this story?", "text": "purpose / insight", "icon": "bulb", "tone": "yellow"}, {"title": "How do I make it believable?", "text": "drive it with data", "icon": "chart", "tone": "cyan"}, {"title": "How do I make it engaging?", "text": "visualisation: style, volume of data, highlighting", "icon": "eye", "tone": "pink"}], "source": "Slide 10"},
         {
           type: "table",
           caption: "Four questions of a story (Slide 10)",
@@ -297,6 +306,8 @@ Academy.module({
         },
         { type: "heading", text: "The Pyramid Principle" },
         { type: "definition", term: "pyramid-principle", source: "Slides 11–12" },
+        {"type": "diagram", "kind": "layers", "title": "The Pyramid Principle", "rows": [{"label": "Introduction", "boxes": [{"title": "Context – Situation – Implication"}], "tone": "blue"}, {"boxes": [{"title": "KEY idea or message", "text": "what this is about"}], "tone": "pink"}, {"label": "Arguments", "boxes": [{"title": "Argument 1"}, {"title": "Argument 2"}, {"title": "Argument 3"}], "tone": "violet"}, {"label": "Support", "boxes": ["Data", "Data", "Data", "Data", "Data", "Data"], "tone": "cyan"}, {"boxes": [{"title": "Conclusion: go back to the KEY message"}], "tone": "pink"}], "source": "Slides 11–12"},
+        {"type": "gallery", "images": [{"src": "img/slide-11.jpg", "caption": "Slide 11: the Pyramid Principle", "alt": "Slide 11: pyramid principle diagram"}, {"src": "img/slide-12.jpg", "caption": "Slide 12: the template", "alt": "Slide 12: key idea, arguments and data template"}], "source": "Slides 11–12 (original)", "cols": 2},
         {
           type: "steps",
           title: "Structure of the Pyramid Principle (Slides 11–12)",
